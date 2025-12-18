@@ -1,0 +1,129 @@
+.skills {
+  background: linear-gradient(135deg, var(--bg-dark) 0%, #0a1a0a 100%);
+  position: relative;
+}
+
+.skills-content {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.skills-3d {
+  height: 500px;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(0, 255, 255, 0.05);
+  border: 2px solid var(--primary-color);
+}
+
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.skill-item {
+  background: var(--bg-light);
+  padding: 1.5rem;
+  border-radius: 15px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+  border-color: var(--primary-color);
+  transform: translateX(10px);
+  box-shadow: 0 5px 20px rgba(0, 255, 255, 0.3);
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.skill-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.skill-icon {
+  font-size: 2rem;
+}
+
+.skill-item h3 {
+  font-size: 1.3rem;
+  color: #fff;
+  margin: 0;
+}
+
+.skill-percentage {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.skill-bar {
+  height: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.skill-progress {
+  height: 100%;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 0 10px currentColor;
+}
+
+.skill-progress::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+@media (max-width: 1024px) {
+  .skills-content {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-3d {
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-3d {
+    height: 300px;
+  }
+
+  .skill-icon {
+    font-size: 1.5rem;
+  }
+
+  .skill-item h3 {
+    font-size: 1.1rem;
+  }
+
+  .skill-percentage {
+    font-size: 1rem;
+  }
+}

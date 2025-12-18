@@ -1,0 +1,126 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 5%;
+  background: rgba(10, 10, 10, 0.5);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(10, 10, 10, 0.95);
+  box-shadow: 0 5px 30px rgba(0, 255, 255, 0.2);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #fff;
+}
+
+.logo-bracket {
+  color: var(--primary-color);
+  font-weight: 900;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  position: relative;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  transition: width 0.3s;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: var(--primary-color);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: var(--primary-color);
+  transition: all 0.3s;
+  border-radius: 2px;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: rgba(10, 10, 10, 0.98);
+    flex-direction: column;
+    justify-content: center;
+    transition: right 0.3s;
+    backdrop-filter: blur(10px);
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-link {
+    font-size: 1.5rem;
+  }
+}
