@@ -56,6 +56,7 @@ const SafeEnvironment = (props) => {
 const FloatingWorkstation = () => {
   const meshRef = useRef()
   const groupRef = useRef()
+  const particlesRef = useRef()
   
   useFrame(({ clock }) => {
     const t = clock.getElapsedTime()
@@ -66,54 +67,120 @@ const FloatingWorkstation = () => {
     if (groupRef.current) {
       groupRef.current.rotation.y = t * 0.1
     }
+    // Animate particles
+    if (particlesRef.current) {
+      particlesRef.current.rotation.y = t * 0.2
+    }
   })
 
   return (
     <group ref={groupRef} position={[0, 0, 0]}>
-      {/* Main sphere */}
+      {/* Enhanced main sphere with more dynamic material */}
       <Float speed={2} rotationIntensity={0.5} floatIntensity={0.5}>
         <Sphere ref={meshRef} args={[1.2, 64, 64]} scale={1.5}>
           <MeshDistortMaterial
             color="#00ffff"
             attach="material"
-            distort={0.3}
-            speed={1.5}
+            distort={0.4}
+            speed={2.5}
             roughness={0.1}
             metalness={0.9}
             emissive="#00ffff"
-            emissiveIntensity={0.3}
+            emissiveIntensity={0.5}
+            transparent={true}
+            opacity={0.8}
           />
         </Sphere>
       </Float>
       
-      {/* Orbiting rings */}
+      {/* Orbiting rings with enhanced glow */}
       <mesh rotation={[Math.PI / 2, 0, 0]}>
-        <torusGeometry args={[2.5, 0.05, 16, 100]} />
-        <meshStandardMaterial color="#ff00ff" emissive="#ff00ff" emissiveIntensity={0.5} metalness={0.8} />
+        <torusGeometry args={[2.5, 0.08, 16, 100]} />
+        <meshStandardMaterial 
+          color="#ff00ff" 
+          emissive="#ff00ff" 
+          emissiveIntensity={0.8} 
+          metalness={0.9} 
+          roughness={0.1}
+        />
       </mesh>
       
       <mesh rotation={[Math.PI / 3, Math.PI / 4, 0]}>
-        <torusGeometry args={[2.8, 0.03, 16, 100]} />
-        <meshStandardMaterial color="#00ffff" emissive="#00ffff" emissiveIntensity={0.4} metalness={0.8} />
+        <torusGeometry args={[2.8, 0.05, 16, 100]} />
+        <meshStandardMaterial 
+          color="#00ffff" 
+          emissive="#00ffff" 
+          emissiveIntensity={0.6} 
+          metalness={0.9} 
+          roughness={0.1}
+        />
       </mesh>
 
-      {/* Floating particles */}
-      {[...Array(20)].map((_, i) => (
-        <Float key={i} speed={2 + i * 0.1} rotationIntensity={1} floatIntensity={2}>
-          <mesh position={[
-            Math.sin((i / 20) * Math.PI * 2) * 4,
-            Math.cos((i / 20) * Math.PI * 2) * 2,
-            Math.sin((i / 20) * Math.PI) * 2
-          ]}>
-            <sphereGeometry args={[0.05, 16, 16]} />
-            <meshStandardMaterial 
-              color={i % 2 === 0 ? "#00ffff" : "#ff00ff"} 
-              emissive={i % 2 === 0 ? "#00ffff" : "#ff00ff"}
-              emissiveIntensity={0.8}
-            />
-          </mesh>
-        </Float>
-      ))}
+      {/* Enhanced floating particles */}
+      <group ref={particlesRef}>
+        {[...Array(30)].map((_, i) => {
+          const distance = 3 + (i % 5) * 0.5
+          return (
+            <Float 
+              key={i} 
+              speed={1.5 + i * 0.1} 
+              rotationIntensity={0.5 + i * 0.1} 
+              floatIntensity={1.5 + i * 0.1}
+            >
+              <mesh 
+                position={[  
+                  Math.sin((i / 30) * Math.PI * 2) * distance,
+                  Math.cos((i / 30) * Math.PI * 2) * distance * 0.5,
+                  Math.sin((i / 30) * Math.PI) * distance * 0.5
+                ]}
+              >
+                <sphereGeometry args={[0.08, 8, 8]} />
+                <meshStandardMaterial 
+                  color={i % 3 === 0 ? "#00ffff" : i % 3 === 1 ? "#ff00ff" : "#ffff00"} 
+                  emissive={i % 3 === 0 ? "#00ffff" : i % 3 === 1 ? "#ff00ff" : "#ffff00"}
+                  emissiveIntensity={0.9}
+                  metalness={0.8}
+                  roughness={0.2}
+                />
+              </mesh>
+            </Float>
+          )
+        })}
+      </group>
+      
+      {/* Additional animated elements */}
+      <mesh position={[0, 0, -2]}>
+        <dodecahedronGeometry args={[0.3, 0]} />
+        <meshStandardMaterial 
+          color="#ffff00" 
+          emissive="#ffff00" 
+          emissiveIntensity={0.7} 
+          metalness={0.9} 
+          roughness={0.1}
+        />
+      </mesh>
+      
+      <mesh position={[2, 1.5, -1.5]}>
+        <octahedronGeometry args={[0.2, 0]} />
+        <meshStandardMaterial 
+          color="#ff00ff" 
+          emissive="#ff00ff" 
+          emissiveIntensity={0.6} 
+          metalness={0.9} 
+          roughness={0.1}
+        />
+      </mesh>
+      
+      <mesh position={[-2, -1.5, -1.5]}>
+        <tetrahedronGeometry args={[0.25, 0]} />
+        <meshStandardMaterial 
+          color="#00ffff" 
+          emissive="#00ffff" 
+          emissiveIntensity={0.6} 
+          metalness={0.9} 
+          roughness={0.1}
+        />
+      </mesh>
     </group>
   )
 }

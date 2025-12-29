@@ -37,6 +37,35 @@
   max-width: 800px;
   pointer-events: auto;
   /* Ensure content area can receive clicks */
+  position: relative;
+}
+
+.hero-content-immersive::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: linear-gradient(45deg, #00ffff, #ff00ff, #00ffff);
+  background-size: 400% 400%;
+  border-radius: 20px;
+  z-index: -1;
+  opacity: 0.1;
+  animation: gradientShift 8s ease infinite;
+  /* Subtle animated background glow */
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .hero-tag {
@@ -64,6 +93,8 @@
   margin-bottom: 1.5rem;
   color: #fff;
   letter-spacing: -0.02em;
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  /* Add subtle glow effect */
 }
 
 .gradient-text {
@@ -73,6 +104,8 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: shimmer 3s linear infinite;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+  /* Enhanced glow effect */
 }
 
 @keyframes shimmer {
@@ -113,6 +146,24 @@
   background: linear-gradient(135deg, #00ffff, #00aaff);
   color: #000;
   box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.cta-primary:hover::before {
+  left: 100%;
+  /* Add shine effect on hover */
 }
 
 .cta-primary:hover {
@@ -133,6 +184,24 @@
   border: 2px solid rgba(255, 255, 255, 0.3);
   color: #fff;
   backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-secondary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.cta-secondary:hover::before {
+  left: 100%;
+  /* Add subtle shine effect on hover */
 }
 
 .cta-secondary:hover {
@@ -158,6 +227,8 @@
   font-size: 2rem;
   font-weight: 700;
   color: #00ffff;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  /* Add glow effect */
 }
 
 .stat-label {
