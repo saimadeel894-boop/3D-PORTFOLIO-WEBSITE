@@ -8,6 +8,8 @@
   align-items: center;
   justify-content: center;
   z-index: 1;
+  padding: 0 20px;
+  /* Add padding for mobile */
 }
 
 .hero-3d-scene {
@@ -31,16 +33,24 @@
   /* Ensure content is always above 3D scene */
   margin: 0 auto;
   /* Add max-width to center content */
+  /* Add subtle dark overlay behind text */
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(10, 10, 10, 0.7) 100%);
+  border-radius: 20px;
+  padding: 60px 40px;
+  /* Ensure text is readable against 3D background */
 }
 
-.hero-content-immersive {
+.hero-content-container {
   max-width: 800px;
   pointer-events: auto;
   /* Ensure content area can receive clicks */
   position: relative;
+  width: 100%;
+  margin: 0 auto;
+  /* Center content within overlay */
 }
 
-.hero-content-immersive::before {
+.hero-content-container::before {
   content: '';
   position: absolute;
   top: -10px;
@@ -72,14 +82,16 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 1.2rem;
-  background: rgba(0, 255, 255, 0.1);
-  border: 1px solid rgba(0, 255, 255, 0.3);
+  padding: 0.6rem 1.4rem;
+  background: rgba(0, 255, 255, 0.15);
+  border: 1px solid rgba(0, 255, 255, 0.4);
   border-radius: 50px;
   font-size: 0.9rem;
   color: #00ffff;
-  margin-bottom: 2rem;
+  margin-bottom: 1.8rem;
   backdrop-filter: blur(10px);
+  font-weight: 500;
+  /* Cleaner and more professional */
 }
 
 .tag-icon {
@@ -87,14 +99,15 @@
 }
 
 .hero-title-immersive {
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  font-weight: 800;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
   line-height: 1.1;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
   color: #fff;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   text-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
   /* Add subtle glow effect */
+  /* More professional font weight */
 }
 
 .gradient-text {
@@ -116,16 +129,18 @@
 .hero-subtitle-immersive {
   font-size: 1.2rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 3rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2rem;
   max-width: 600px;
+  /* Cleaner spacing */
 }
 
 .hero-cta-group {
   display: flex;
   gap: 1.5rem;
   flex-wrap: wrap;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
+  /* Cleaner spacing */
 }
 
 .cta-primary,
@@ -145,9 +160,10 @@
 .cta-primary {
   background: linear-gradient(135deg, #00ffff, #00aaff);
   color: #000;
-  box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 255, 255, 0.3);
   position: relative;
   overflow: hidden;
+  /* Cleaner button */
 }
 
 .cta-primary::before {
@@ -181,11 +197,12 @@
 
 .cta-secondary {
   background: transparent;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.4);
   color: #fff;
   backdrop-filter: blur(10px);
   position: relative;
   overflow: hidden;
+  /* Cleaner button */
 }
 
 .cta-secondary::before {
@@ -211,16 +228,19 @@
 
 .hero-stats {
   display: flex;
-  gap: 3rem;
+  gap: 2.5rem;
   flex-wrap: wrap;
-  padding-top: 2rem;
+  padding-top: 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+  /* Cleaner spacing */
 }
 
 .stat-item {
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
+  text-align: center;
+  /* Center align stats */
 }
 
 .stat-number {
@@ -253,12 +273,13 @@
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
   /* Ensure scroll prompt is always visible */
   pointer-events: none;
+  /* Cleaner, more professional look */
 }
 
 .scroll-icon {
@@ -501,42 +522,48 @@
   
   .hero-immersive {
     min-height: 100vh;
-    padding-bottom: 120px; /* Additional padding for mobile */
+    padding: 0 15px; /* Reduced padding for mobile */
   }
   
-  .hero-content-immersive {
+  .hero-overlay {
+    padding: 40px 25px; /* Adjusted padding for mobile */
+    border-radius: 15px; /* Slightly smaller radius on mobile */
+  }
+  
+  .hero-content-container {
     max-width: 100%;
-    padding: 0 20px; /* Add side padding on mobile */
   }
   
   .hero-title-immersive {
     font-size: clamp(1.8rem, 8vw, 2.5rem);
-    line-height: 1.3;
+    line-height: 1.2;
+    margin-bottom: 1rem;
   }
   
   .hero-subtitle-immersive {
-    font-size: 1rem;
+    font-size: 1.1rem;
     line-height: 1.5;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
   
   .hero-cta-group {
     flex-direction: column;
-    gap: 1rem;
-    margin-bottom: 2rem;
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
   }
   
   .cta-primary,
   .cta-secondary {
     width: 100%;
     justify-content: center;
-    padding: 0.8rem 1.5rem;
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
   }
   
   .hero-stats {
     flex-direction: column;
-    gap: 1rem;
-    padding-top: 1.5rem;
+    gap: 1.2rem;
+    padding-top: 1.2rem;
     align-items: center;
   }
   
@@ -549,6 +576,18 @@
   }
   
   .scroll-prompt {
-    bottom: 20px;
+    bottom: 25px;
+    font-size: 0.8rem;
+  }
+  
+  .scroll-icon {
+    width: 20px;
+    height: 35px;
+  }
+  
+  .scroll-icon::after {
+    width: 3px;
+    height: 6px;
+    top: 6px;
   }
 }

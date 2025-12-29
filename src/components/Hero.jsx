@@ -243,26 +243,26 @@ const Hero = () => {
 
       <div className="hero-overlay">
         <motion.div 
-          className="hero-content-immersive"
+          className="hero-content-container"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 50 }}
-          transition={{ duration: 1.2, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
         >
           <motion.div
             className="hero-tag"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4 }}
+            transition={{ delay: 0.3 }}
           >
             <span className="tag-icon">⚡</span>
-            <span>Full Stack Engineer</span>
+            <span>Full Stack Web Developer</span>
           </motion.div>
 
           <motion.h1
             className="hero-title-immersive"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
           >
             I build high-performance
             <br />
@@ -275,24 +275,22 @@ const Hero = () => {
             className="hero-subtitle-immersive"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.0 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
           >
             Transforming complex problems into elegant, scalable solutions.
-            <br />
-            Based in Lahore, building for the world.
           </motion.p>
           
           <motion.div
             className="hero-cta-group"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.2 }}
+            transition={{ delay: 0.8, duration: 0.5 }}
           >
             <motion.a 
               href="#projects" 
               className="cta-primary"
-              whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(0, 255, 255, 0.5)" }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.03, boxShadow: "0 0 30px rgba(0, 255, 255, 0.4)" }}
+              whileTap={{ scale: 0.98 }}
             >
               <span>View Projects</span>
               <span className="cta-icon">→</span>
@@ -300,8 +298,8 @@ const Hero = () => {
             <motion.a 
               href="#contact" 
               className="cta-secondary"
-              whileHover={{ scale: 1.05, borderColor: "#00ffff" }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.03, borderColor: "#00ffff" }}
+              whileTap={{ scale: 0.98 }}
             >
               <span>Contact Me</span>
             </motion.a>
@@ -311,7 +309,7 @@ const Hero = () => {
             className="hero-stats"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.5 }}
+            transition={{ delay: 1.0, duration: 0.5 }}
           >
             <div className="stat-item">
               <span className="stat-number">50+</span>
@@ -335,7 +333,7 @@ const Hero = () => {
         className="scroll-prompt"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
+        transition={{ delay: 1.5, duration: 0.5 }}
       >
         <motion.div
           animate={{ y: [0, 12, 0] }}
