@@ -4,8 +4,36 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SAIM ADEEL - Full Stack Web Developer</title>
+    <meta name="theme-color" content="#000000" />
     <meta name="description" content="SAIM ADEEL - Full Stack Web Developer from Lahore, Pakistan. Specializing in React, Node.js, and modern web technologies." />
+    <meta name="keywords" content="web developer, full stack, react, javascript, portfolio, 3d, webgl" />
+    <meta name="author" content="SAIM ADEEL" />
+    <title>SAIM ADEEL - Full Stack Web Developer</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/src/main.jsx" as="script" />
+    
+    <!-- No script fallback -->
+    <noscript>
+      <style>
+        .hero-immersive { display: none; }
+        .no-script-message {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+          background: #000;
+          color: #fff;
+          text-align: center;
+          padding: 20px;
+        }
+      </style>
+      <div class="no-script-message">
+        <h1>JavaScript Required</h1>
+        <p>This portfolio requires JavaScript to display the interactive 3D experience.</p>
+      </div>
+    </noscript>
   </head>
   <body>
     <div id="root"></div>

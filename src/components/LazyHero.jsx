@@ -1,0 +1,67 @@
+import React, { useState, useEffect, lazy, Suspense } from 'react';
+import { detectWebGL } from '../utils/webglDetector';
+import LoadingSpinner from './LoadingSpinner';
+import ErrorBoundary from './ErrorBoundary';
+import HeroFallback from './HeroFallback';
+
+// Lazy load the 3D hero component
+const Hero3D = lazy(() => 
+  import('./Hero').then(module => ({ default: module.default }))
+  .catch(() => ({ default: HeroFallback }))
+);
+
+const LazyHero = () => {
+  const [canRender3D, setCanRender3D] = useState(false);
+  const [webglSupported, setWebglSupported] = useState(false);
+  const [isChecking, setIsChecking] = useState(true);
+
+  useEffect(() => {
+    // Check WebGL support after component mounts
+    const checkWebGL = async () => {
+      // Add a small delay to ensure DOM is ready
+      await new Promise(resolve => setTimeout(resolve, 100));
+      
+      const isWebGL = detectWebGL();
+      setWebglSupported(isWebGL);
+      
+      // Only enable 3D if WebGL is supported and browser can handle it
+      if (isWebGL) {
+        // Check for mobile devices and low-end hardware
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        const isLowEndDevice = navigator.hardwareConcurrency < 4 || 
+                              (navigator.deviceMemory && navigator.deviceMemory < 4);
+        
+        // For mobile or low-end devices, we might want to skip 3D for better performance
+        // But we'll still allow it with a warning system
+        setCanRender3D(true);
+      } else {
+        setCanRender3D(false);
+      }
+      
+      setIsChecking(false);
+    };
+
+    checkWebGL();
+  }, []);
+
+  // If still checking, show fallback
+  if (isChecking) {
+    return <HeroFallback />;
+  }
+
+  // If WebGL is not supported, show fallback
+  if (!webglSupported) {
+    return <HeroFallback />;
+  }
+
+  // If WebGL is supported, try to render 3D with fallback
+  return (
+    <ErrorBoundary fallback={<HeroFallback />}>
+      <Suspense fallback={<HeroFallback />}>        
+        {canRender3D ? <Hero3D /> : <HeroFallback />}
+      </Suspense>
+    </ErrorBoundary>
+  );
+};
+
+export default LazyHero;

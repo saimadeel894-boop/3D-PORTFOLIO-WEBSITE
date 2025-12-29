@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
+import LazyHero from './components/LazyHero'
 import About from './components/About'
 import Skills from './components/Skills'
 import Projects from './components/Projects'
@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="App">
       <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
-      <Hero />
+      <LazyHero />
       <About />
       <Skills />
       <Projects />
