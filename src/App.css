@@ -8,11 +8,18 @@ section {
   min-height: 100vh;
   padding: 80px 5%;
   position: relative;
+  z-index: 5;
+  /* Ensure all sections are above the 3D scene */
+  background: #000;
+  /* Ensure section background doesn't interfere */
 }
 
 .container {
   max-width: 1400px;
   margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
+  /* Ensure proper centering and spacing */
 }
 
 h2 {

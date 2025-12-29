@@ -7,6 +7,8 @@ const HeroFallback = () => {
     <section id="home" className="hero-immersive">
       {/* Lightweight Hero content without 3D canvas */}
       <div className="hero-overlay">
+        {/* Ensure 3D canvas area is preserved for layout consistency */}
+        <div className="hero-3d-scene" style={{ display: 'none' }}></div>
         <motion.div 
           className="hero-content-immersive"
           initial={{ opacity: 0, y: 50 }}

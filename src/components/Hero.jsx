@@ -145,7 +145,7 @@ const Hero = () => {
   return (
     <section id="home" className="hero-immersive">
       <div className="hero-3d-scene">
-        <SafeCanvas shadows>
+        <SafeCanvas shadows style={{ pointerEvents: 'none' }}>
           <PerspectiveCamera makeDefault position={[0, 1, 8]} fov={75} />
           <CameraRig />
           
