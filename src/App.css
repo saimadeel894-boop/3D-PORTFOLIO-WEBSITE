@@ -14,12 +14,21 @@
 
 section {
   min-height: 100vh;
-  padding: 80px 5%;
+  padding: 80px 5% 100px;
   position: relative;
   z-index: 5;
   /* Ensure all sections are above the 3D scene */
   background: #000;
   /* Ensure section background doesn't interfere */
+  /* Add more bottom padding for mobile */
+}
+
+/* Mobile-specific section styles */
+@media (max-width: 768px) {
+  section {
+    min-height: auto;
+    padding: 60px 5% 80px;
+  }
 }
 
 .container {

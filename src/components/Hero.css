@@ -12,6 +12,15 @@
   /* Add padding for mobile */
 }
 
+/* Mobile-specific hero styles */
+@media (max-width: 768px) {
+  .hero-immersive {
+    min-height: 100vh;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+
 .hero-3d-scene {
   position: absolute;
   top: 0;
@@ -21,6 +30,8 @@
   z-index: 1;
   /* Ensure 3D canvas doesn't interfere with text */
   pointer-events: none;
+  /* Ensure canvas doesn't interfere with scrolling */
+  overflow: visible;
 }
 
 .hero-overlay {
