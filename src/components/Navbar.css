@@ -8,6 +8,7 @@
   backdrop-filter: blur(10px);
   z-index: 1000;
   transition: all 0.3s ease;
+  /* Ensure navbar doesn't block content */
 }
 
 .navbar.scrolled {

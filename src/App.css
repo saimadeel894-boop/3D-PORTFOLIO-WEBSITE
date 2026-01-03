@@ -2,6 +2,14 @@
   width: 100%;
   min-height: 100vh;
   position: relative;
+  padding-top: 90px; /* Account for fixed navbar */
+}
+
+/* Add specific mobile padding for smaller screens */
+@media (max-width: 768px) {
+  .App {
+    padding-top: 80px; /* Adjust for mobile navbar height */
+  }
 }
 
 section {
