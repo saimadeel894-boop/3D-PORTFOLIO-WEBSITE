@@ -5,13 +5,6 @@
   padding-top: 90px; /* Account for fixed navbar */
 }
 
-/* Add specific mobile padding for smaller screens */
-@media (max-width: 768px) {
-  .App {
-    padding-top: 80px; /* Adjust for mobile navbar height */
-  }
-}
-
 section {
   min-height: 100vh;
   padding: 80px 5% 100px;
@@ -41,8 +34,12 @@ h2 {
   background-clip: text;
 }
 
-/* Mobile-specific section styles */
+/* Mobile-specific styles */
 @media (max-width: 768px) {
+  .App {
+    padding-top: 80px; /* Adjust for mobile navbar height */
+  }
+  
   section {
     min-height: auto;
     padding: 60px 5% 80px;

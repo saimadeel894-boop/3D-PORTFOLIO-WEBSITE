@@ -20,6 +20,126 @@
     padding-bottom: 20px;
     min-height: 100vh;
   }
+  
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .cta-primary,
+  .cta-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .hero-stats {
+    gap: 1.5rem;
+    justify-content: space-between;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem;
+  }
+  
+  .stat-label {
+    font-size: 0.75rem;
+  }
+  
+  .stat-divider {
+    display: none;
+  }
+  
+  /* Legacy styles for mobile */
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.3rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+  }
+  
+  .hero-3d {
+    height: 300px;
+  }
+  
+  .btn {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+  
+  .hero-immersive {
+    padding: 0 15px; /* Reduced padding for mobile */
+  }
+  
+  .hero-overlay {
+    padding: 40px 25px; /* Adjusted padding for mobile */
+    border-radius: 15px; /* Slightly smaller radius on mobile */
+  }
+  
+  .hero-content-container {
+    max-width: 100%;
+  }
+  
+  .hero-title-immersive {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-subtitle-immersive {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-cta-group {
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .cta-primary,
+  .cta-secondary {
+    width: 100%;
+    justify-content: center;
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .hero-stats {
+    flex-direction: column;
+    gap: 1.2rem;
+    padding-top: 1.2rem;
+    align-items: center;
+  }
+  
+  .stat-item {
+    text-align: center;
+  }
+  
+  .stat-divider {
+    display: none;
+  }
+  
+  .scroll-prompt {
+    bottom: 25px;
+    font-size: 0.8rem;
+  }
+  
+  .scroll-icon {
+    width: 20px;
+    height: 35px;
+  }
+  
+  .scroll-icon::after {
+    width: 3px;
+    height: 6px;
+    top: 6px;
+  }
 }
 
 .hero-3d-scene {
@@ -509,97 +629,4 @@
   }
 }
 
-/* Mobile responsive for immersive hero */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.5rem;
-  }
 
-  .hero-subtitle {
-    font-size: 1.3rem;
-  }
-
-  .hero-description {
-    font-size: 1rem;
-  }
-
-  .hero-3d {
-    height: 300px;
-  }
-
-  .btn {
-    padding: 0.8rem 2rem;
-    font-size: 1rem;
-  }
-  
-  .hero-immersive {
-    min-height: 100vh;
-    padding: 0 15px; /* Reduced padding for mobile */
-  }
-  
-  .hero-overlay {
-    padding: 40px 25px; /* Adjusted padding for mobile */
-    border-radius: 15px; /* Slightly smaller radius on mobile */
-  }
-  
-  .hero-content-container {
-    max-width: 100%;
-  }
-  
-  .hero-title-immersive {
-    font-size: clamp(1.8rem, 8vw, 2.5rem);
-    line-height: 1.2;
-    margin-bottom: 1rem;
-  }
-  
-  .hero-subtitle-immersive {
-    font-size: 1.1rem;
-    line-height: 1.5;
-    margin-bottom: 1.5rem;
-  }
-  
-  .hero-cta-group {
-    flex-direction: column;
-    gap: 1.2rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .cta-primary,
-  .cta-secondary {
-    width: 100%;
-    justify-content: center;
-    padding: 0.9rem 1.5rem;
-    font-size: 1rem;
-  }
-  
-  .hero-stats {
-    flex-direction: column;
-    gap: 1.2rem;
-    padding-top: 1.2rem;
-    align-items: center;
-  }
-  
-  .stat-item {
-    text-align: center;
-  }
-  
-  .stat-divider {
-    display: none;
-  }
-  
-  .scroll-prompt {
-    bottom: 25px;
-    font-size: 0.8rem;
-  }
-  
-  .scroll-icon {
-    width: 20px;
-    height: 35px;
-  }
-  
-  .scroll-icon::after {
-    width: 3px;
-    height: 6px;
-    top: 6px;
-  }
-}

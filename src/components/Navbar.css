@@ -11,28 +11,6 @@
   /* Ensure navbar doesn't block content */
 }
 
-/* Ensure body scroll is enabled when mobile menu is closed */
-@media (max-width: 768px) {
-  .nav-menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 70%;
-    height: 100vh;
-    background: rgba(10, 10, 10, 0.98);
-    flex-direction: column;
-    justify-content: center;
-    transition: right 0.3s;
-    backdrop-filter: blur(10px);
-    z-index: 999;
-    overflow-y: auto;
-  }
-  
-  .nav-menu.active {
-    right: 0;
-  }
-}
-
 .navbar.scrolled {
   background: rgba(10, 10, 10, 0.95);
   box-shadow: 0 5px 30px rgba(0, 255, 255, 0.2);
@@ -124,6 +102,25 @@
 }
 
 @media (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: rgba(10, 10, 10, 0.98);
+    flex-direction: column;
+    justify-content: center;
+    transition: right 0.3s;
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    overflow-y: auto;
+  }
+  
+  .nav-menu.active {
+    right: 0;
+  }
+  
   .hamburger {
     display: flex;
   }
