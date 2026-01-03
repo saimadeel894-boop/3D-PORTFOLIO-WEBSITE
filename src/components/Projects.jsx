@@ -32,6 +32,26 @@ const Projects = () => {
     },
     {
       id: 3,
+      title: "Brand Clothes Website",
+      description: "Brand Website",
+      businessProblem: "A modern brand website designed to showcase products and brand identity.",
+      features: ["Visual storytelling", "Clean layout", "Strong frontend structure"],
+      techStack: ["React", "CSS3", "JavaScript", "Vercel"],
+      liveDemo: "https://clothes-website-zsbe.vercel.app/",
+      github: "#"
+    },
+    {
+      id: 4,
+      title: "Student Management System",
+      description: "Web Application",
+      businessProblem: "A web-based student management system built to handle academic workflows efficiently.",
+      features: ["Usability focused", "Structured data handling", "Real-world application logic"],
+      techStack: ["React", "Node.js", "MongoDB", "Express"],
+      liveDemo: "https://studentassistantainetlifyapp.netlify.app/",
+      github: "#"
+    },
+    {
+      id: 5,
       title: "3D Personal Portfolio",
       description: "Interactive Portfolio",
       businessProblem: "Advanced 3D frontend showcase with animations and performance optimization.",
