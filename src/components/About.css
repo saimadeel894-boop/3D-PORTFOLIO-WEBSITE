@@ -58,17 +58,80 @@
   margin: 0;
 }
 
-.about-image {
+.about-3d-panel {
   position: relative;
 }
 
-.image-container {
+.glass-panel {
   width: 100%;
-  height: 500px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
   position: relative;
-  border-radius: 20px;
   overflow: hidden;
-  border: 2px solid var(--primary-color);
+}
+
+.glass-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.glass-panel:hover::before {
+  transform: scaleX(1);
+}
+
+.strength-icon {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.strength-icon:last-child {
+  margin-bottom: 0;
+}
+
+.strength-icon:hover {
+  background: rgba(0, 255, 255, 0.1);
+  transform: translateX(5px);
+}
+
+.icon-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.8rem;
+}
+
+.icon-circle .icon {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+}
+
+.strength-icon h4 {
+  color: var(--primary-color);
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.strength-icon p {
+  color: #aaa;
+  margin: 0;
+  font-size: 0.9rem;
 }
 
 .profile-image {
@@ -170,12 +233,8 @@
     gap: 3rem;
   }
 
-  .image-container {
-    height: 400px;
-  }
-
-  .image-placeholder {
-    height: 400px;
+  .glass-panel {
+    padding: 1.5rem;
   }
 }
 
@@ -193,15 +252,16 @@
     font-size: 2rem;
   }
 
-  .image-container {
-    height: 300px;
+  .glass-panel {
+    padding: 1.2rem;
   }
 
-  .image-placeholder {
-    height: 300px;
+  .icon-circle {
+    width: 35px;
+    height: 35px;
   }
 
-  .code-lines {
+  .icon-circle .icon {
     font-size: 1rem;
   }
 }

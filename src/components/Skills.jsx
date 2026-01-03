@@ -1,45 +1,35 @@
-import React, { useRef } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
-import { Box, Float } from '@react-three/drei'
+import React from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaJs, FaGitAlt } from 'react-icons/fa'
-import { SiMongodb, SiTailwindcss, SiTypescript } from 'react-icons/si'
 import './Skills.css'
-
-const RotatingBox = ({ position, color }) => {
-  const meshRef = useRef()
-  
-  useFrame(({ clock }) => {
-    meshRef.current.rotation.x = clock.getElapsedTime() * 0.5
-    meshRef.current.rotation.y = clock.getElapsedTime() * 0.7
-  })
-
-  return (
-    <Float speed={2} rotationIntensity={1} floatIntensity={2}>
-      <Box ref={meshRef} position={position} args={[1, 1, 1]}>
-        <meshStandardMaterial color={color} metalness={0.8} roughness={0.2} />
-      </Box>
-    </Float>
-  )
-}
 
 const Skills = () => {
   const [ref, inView] = useInView({
-    threshold: 0.2,
+    threshold: 0.3,
     triggerOnce: true
   })
 
-  const skills = [
-    { name: 'React', icon: FaReact, level: 90, color: '#61DAFB' },
-    { name: 'JavaScript', icon: FaJs, level: 95, color: '#F7DF1E' },
-    { name: 'TypeScript', icon: SiTypescript, level: 85, color: '#3178C6' },
-    { name: 'HTML5', icon: FaHtml5, level: 95, color: '#E34F26' },
-    { name: 'CSS3', icon: FaCss3Alt, level: 90, color: '#1572B6' },
-    { name: 'Node.js', icon: FaNodeJs, level: 80, color: '#339933' },
-    { name: 'MongoDB', icon: SiMongodb, level: 75, color: '#47A248' },
-    { name: 'Tailwind', icon: SiTailwindcss, level: 88, color: '#06B6D4' },
-    { name: 'Git', icon: FaGitAlt, level: 85, color: '#F05032' }
+  const skillCategories = [
+    {
+      title: "Frontend",
+      skills: ["HTML", "CSS", "JavaScript", "React", "Tailwind"],
+      color: "#00ffff"
+    },
+    {
+      title: "Backend", 
+      skills: ["Node.js", "APIs", "Express", "MongoDB", "PostgreSQL"],
+      color: "#ff00ff"
+    },
+    {
+      title: "AI & SaaS",
+      skills: ["AI integrations", "Prompt systems", "Automation", "Machine Learning", "OpenAI"],
+      color: "#ffff00"
+    },
+    {
+      title: "Tools",
+      skills: ["Git", "GitHub", "Vercel", "Netlify", "Figma"],
+      color: "#00ff00"
+    }
   ]
 
   return (
@@ -50,57 +40,58 @@ const Skills = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          Skills & Technologies
+          Skills Constellation
         </motion.h2>
 
-        <div ref={ref} className="skills-content">
-          <motion.div
-            className="skills-3d"
-            initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8 }}
-          >
-            <Canvas camera={{ position: [0, 0, 8] }}>
-              <ambientLight intensity={0.5} />
-              <pointLight position={[10, 10, 10]} intensity={1} />
-              <pointLight position={[-10, -10, -10]} intensity={0.5} color="#ff00ff" />
-              <RotatingBox position={[-2, 1, 0]} color="#00ffff" />
-              <RotatingBox position={[2, 1, 0]} color="#ff00ff" />
-              <RotatingBox position={[0, -1, 0]} color="#ffff00" />
-            </Canvas>
-          </motion.div>
-
-          <div className="skills-list">
-            {skills.map((skill, index) => (
-              <motion.div
-                key={skill.name}
-                className="skill-item"
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <div className="skill-header">
-                  <div className="skill-info">
-                    <skill.icon className="skill-icon" style={{ color: skill.color }} />
-                    <h3>{skill.name}</h3>
-                  </div>
-                  <span className="skill-percentage">{skill.level}%</span>
-                </div>
-                <div className="skill-bar">
+        <div ref={ref} className="skills-constellation">
+          {skillCategories.map((category, index) => (
+            <motion.div
+              key={category.title}
+              className="skill-category"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={inView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ delay: index * 0.2, duration: 0.6 }}
+            >
+              <div className="category-header">
+                <h3>{category.title}</h3>
+                <div 
+                  className="category-indicator" 
+                  style={{ backgroundColor: category.color }}
+                ></div>
+              </div>
+              
+              <div className="skills-list">
+                {category.skills.map((skill, skillIndex) => (
                   <motion.div
-                    className="skill-progress"
-                    initial={{ width: 0 }}
-                    animate={inView ? { width: `${skill.level}%` } : {}}
-                    transition={{ duration: 1, delay: index * 0.1 + 0.3 }}
-                    style={{ 
-                      background: `linear-gradient(90deg, ${skill.color}, var(--primary-color))` 
-                    }}
-                  />
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                    key={skill}
+                    className="skill-item"
+                    whileHover={{ scale: 1.05, color: category.color }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={inView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ delay: (index * 0.2) + (skillIndex * 0.1), duration: 0.4 }}
+                  >
+                    {skill}
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
         </div>
+
+        <motion.div 
+          className="skills-visualization"
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ delay: 0.8, duration: 1 }}
+        >
+          <div className="orbit-container">
+            <div className="central-sphere"></div>
+            <div className="orbit-orbital" style={{ '--color': '#00ffff' }}></div>
+            <div className="orbit-orbital" style={{ '--color': '#ff00ff' }}></div>
+            <div className="orbit-orbital" style={{ '--color': '#ffff00' }}></div>
+            <div className="orbit-orbital" style={{ '--color': '#00ff00' }}></div>
+          </div>
+        </motion.div>
       </div>
     </section>
   )

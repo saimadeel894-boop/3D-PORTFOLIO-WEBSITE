@@ -27,62 +27,64 @@ const About = () => {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h3>Full Stack Web Developer from Lahore</h3>
+            <h3>Problem Solver & Performance Driver</h3>
             <p>
-              I'm SAIM ADEEL, a passionate full stack web developer based in Lahore, Pakistan. 
-              With a keen eye for design and a love for creating seamless user experiences, 
-              I transform ideas into reality through clean, efficient code and modern web technologies.
+              I'm a frontend and full-stack engineer who builds products that matter. 
+              My approach combines technical excellence with business-focused thinking, 
+              ensuring every line of code contributes to real-world impact.
             </p>
             <p>
-              My expertise spans both frontend and backend development, allowing me to build 
-              complete web solutions from concept to deployment. I specialize in creating responsive, 
-              performant applications using React, Node.js, and modern JavaScript frameworks.
+              With expertise in modern web technologies and AI integration, 
+              I create experiences that not only look stunning but drive results.
             </p>
             <p>
-              When I'm not coding, you can find me exploring new technologies, contributing to 
-              open-source projects, and continuously learning to stay at the cutting edge of web development.
+              I specialize in performance-driven development, turning complex requirements 
+              into elegant, scalable solutions that stand the test of time.
             </p>
 
             <div className="about-stats">
               <div className="stat">
-                <h4>50+</h4>
-                <p>Projects Completed</p>
+                <h4>5+ Years</h4>
+                <p>Professional Experience</p>
               </div>
               <div className="stat">
-                <h4>5+</h4>
-                <p>Years Experience</p>
+                <h4>50+ Projects</h4>
+                <p>Successfully Delivered</p>
               </div>
               <div className="stat">
-                <h4>30+</h4>
-                <p>Happy Clients</p>
+                <h4>100% Client</h4>
+                <p>Satisfaction Rate</p>
               </div>
             </div>
           </motion.div>
 
           <motion.div
-            className="about-image"
+            className="about-3d-panel"
             initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <div className="image-container">
-              <img 
-                src="/profile.jpg" 
-                alt="SAIM ADEEL - Full Stack Developer"
-                className="profile-image"
-                onError={(e) => {
-                  e.target.style.display = 'none';
-                  e.target.nextSibling.style.display = 'flex';
-                }}
-              />
-              <div className="image-placeholder" style={{ display: 'none' }}>
-                <div className="code-lines">
-                  <span className="line">{'<div className="developer">'}</span>
-                  <span className="line indent1">{'<h1>SAIM ADEEL</h1>'}</span>
-                  <span className="line indent1">{'<h2>Full Stack</h2>'}</span>
-                  <span className="line indent1">{'<h3>Web Developer</h3>'}</span>
-                  <span className="line">{'</div>'}</span>
+            <div className="glass-panel">
+              <div className="strength-icon">
+                <div className="icon-circle">
+                  <span className="icon">⚡</span>
                 </div>
+                <h4>Frontend Engineering</h4>
+                <p>Modern React, performance optimization</p>
+              </div>
+              <div className="strength-icon">
+                <div className="icon-circle">
+                  <span className="icon">🤖</span>
+                </div>
+                <h4>AI Integration</h4>
+                <p>Smart systems and automation</p>
+              </div>
+              <div className="strength-icon">
+                <div className="icon-circle">
+                  <span className="icon">🎨</span>
+                </div>
+                <h4>UI Excellence</h4>
+                <p>Cutting-edge design systems</p>
               </div>
             </div>
           </motion.div>

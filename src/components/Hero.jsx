@@ -255,7 +255,7 @@ const Hero = () => {
             transition={{ delay: 0.3 }}
           >
             <span className="tag-icon">⚡</span>
-            <span>Full Stack Web Developer</span>
+            <span>High-Value Developer</span>
           </motion.div>
 
           <motion.h1
@@ -264,11 +264,11 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            I build high-performance
+            I design and build
             <br />
-            <span className="gradient-text">web & AI-powered</span>
+            <span className="gradient-text">high-performance</span>
             <br />
-            applications
+            web & AI-powered products
           </motion.h1>
           
           <motion.p
@@ -277,7 +277,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.5 }}
           >
-            Transforming complex problems into elegant, scalable solutions.
+            From AI SaaS tools to conversion-focused ecommerce experiences.
           </motion.p>
           
           <motion.div
@@ -301,7 +301,7 @@ const Hero = () => {
               whileHover={{ scale: 1.03, borderColor: "#00ffff" }}
               whileTap={{ scale: 0.98 }}
             >
-              <span>Contact Me</span>
+              <span>Hire Me</span>
             </motion.a>
           </motion.div>
 
@@ -341,7 +341,7 @@ const Hero = () => {
         >
           <div className="scroll-icon"></div>
         </motion.div>
-        <span>Scroll to explore</span>
+        <span>Explore the experience</span>
       </motion.div>
     </section>
   )

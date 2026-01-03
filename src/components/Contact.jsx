@@ -1,19 +1,18 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin, FaWhatsapp, FaInstagram, FaFacebook } from 'react-icons/fa'
+import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa'
 import './Contact.css'
 
 const Contact = () => {
   const [ref, inView] = useInView({
-    threshold: 0.2,
+    threshold: 0.3,
     triggerOnce: true
   })
 
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
     message: ''
   })
 
@@ -26,10 +25,10 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Handle form submission here
+    // Handle form submission
     console.log('Form submitted:', formData)
     alert('Thank you for your message! I will get back to you soon.')
-    setFormData({ name: '', email: '', subject: '', message: '' })
+    setFormData({ name: '', email: '', message: '' })
   }
 
   return (
@@ -40,133 +39,104 @@ const Contact = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          Get In Touch
+          Let's Build Something That Matters
         </motion.h2>
 
         <div ref={ref} className="contact-content">
           <motion.div
-            className="contact-info"
+            className="contact-form"
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
           >
-            <h3>Let's Work Together</h3>
-            <p>
-              I'm always open to discussing new projects, creative ideas, or opportunities 
-              to be part of your visions. Feel free to reach out!
-            </p>
-
-            <div className="info-items">
-              <div className="info-item">
-                <FaEnvelope className="info-icon" />
-                <div>
-                  <h4>Email</h4>
-                  <p>saimadeel894@gmail.com</p>
-                </div>
+            <form onSubmit={handleSubmit}>
+              <div className="form-group">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
               </div>
-
-              <div className="info-item">
-                <FaPhone className="info-icon" />
-                <div>
-                  <h4>Phone</h4>
-                  <p>+92 309 0240140</p>
-                </div>
+              <div className="form-group">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
               </div>
-
-              <div className="info-item">
-                <FaMapMarkerAlt className="info-icon" />
-                <div>
-                  <h4>Location</h4>
-                  <p>Lahore, Pakistan</p>
-                </div>
+              <div className="form-group">
+                <textarea
+                  name="message"
+                  placeholder="Your Message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows="5"
+                  required
+                ></textarea>
               </div>
-            </div>
-
-            <div className="social-links">
-              <a href="https://github.com/saimadeel894-boop" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="GitHub">
-                <FaGithub />
-              </a>
-              <a href="https://www.linkedin.com/in/saim-adeel-890a67376" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn">
-                <FaLinkedin />
-              </a>
-              <a href="https://www.instagram.com/p/DOctLZGEgwH/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram">
-                <FaInstagram />
-              </a>
-              <a href="https://www.facebook.com/share/1E6CJCjaCW/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Facebook">
-                <FaFacebook />
-              </a>
-              <a href="https://wa.me/923090240140" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="WhatsApp">
-                <FaWhatsapp />
-              </a>
-            </div>
+              <motion.button
+                type="submit"
+                className="submit-btn"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Send Message
+              </motion.button>
+            </form>
           </motion.div>
 
-          <motion.form
-            className="contact-form"
-            onSubmit={handleSubmit}
+          <motion.div
+            className="contact-info"
             initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
           >
-            <div className="form-group">
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
+            <div className="contact-icons">
+              <motion.a
+                href="mailto:saimadeel894@gmail.com"
+                className="contact-icon"
+                whileHover={{ scale: 1.1, color: '#00ffff' }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <FaEnvelope />
+                <span>Email</span>
+              </motion.a>
+              <motion.a
+                href="https://github.com"
+                className="contact-icon"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1, color: '#ff00ff' }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <FaGithub />
+                <span>GitHub</span>
+              </motion.a>
+              <motion.a
+                href="https://linkedin.com"
+                className="contact-icon"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1, color: '#ffff00' }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <FaLinkedin />
+                <span>LinkedIn</span>
+              </motion.a>
             </div>
-
-            <div className="form-group">
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
+            
+            <div className="contact-message">
+              <p>Ready to bring your vision to life? Let's discuss your next project and create something extraordinary together.</p>
             </div>
-
-            <div className="form-group">
-              <input
-                type="text"
-                name="subject"
-                placeholder="Subject"
-                value={formData.subject}
-                onChange={handleChange}
-                required
-              />
-            </div>
-
-            <div className="form-group">
-              <textarea
-                name="message"
-                placeholder="Your Message"
-                rows="6"
-                value={formData.message}
-                onChange={handleChange}
-                required
-              ></textarea>
-            </div>
-
-            <motion.button
-              type="submit"
-              className="btn btn-primary"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Send Message
-            </motion.button>
-          </motion.form>
+          </motion.div>
         </div>
       </div>
-
-      <footer className="footer">
-        <p>&copy; 2024 SAIM ADEEL. All rights reserved.</p>
-      </footer>
     </section>
   )
 }
