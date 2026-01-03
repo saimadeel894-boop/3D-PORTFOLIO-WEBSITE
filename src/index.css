@@ -7,10 +7,10 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   overflow-x: hidden;
+  overflow-y: auto;
   background: #000;
   color: #fff;
   /* Ensure content is scrollable */
-  overflow-y: auto;
 }
 
 :root {
@@ -28,4 +28,5 @@ html {
 #root {
   width: 100%;
   min-height: 100vh;
+  overflow: visible;
 }

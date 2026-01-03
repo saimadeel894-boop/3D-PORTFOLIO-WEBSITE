@@ -2,7 +2,7 @@
 .hero-immersive {
   min-height: 100vh;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   background: #000;
   display: flex;
   align-items: center;
@@ -15,9 +15,10 @@
 /* Mobile-specific hero styles */
 @media (max-width: 768px) {
   .hero-immersive {
-    min-height: 100vh;
+    min-height: auto;
     padding-top: 20px;
     padding-bottom: 20px;
+    min-height: 100vh;
   }
 }
 

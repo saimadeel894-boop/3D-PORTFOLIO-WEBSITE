@@ -2,7 +2,7 @@
   background: var(--bg-dark);
   padding: 100px 5%;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .skills h2 {

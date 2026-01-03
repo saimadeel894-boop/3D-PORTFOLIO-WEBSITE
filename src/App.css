@@ -23,14 +23,6 @@ section {
   /* Add more bottom padding for mobile */
 }
 
-/* Mobile-specific section styles */
-@media (max-width: 768px) {
-  section {
-    min-height: auto;
-    padding: 60px 5% 80px;
-  }
-}
-
 .container {
   max-width: 1400px;
   margin: 0 auto;
@@ -49,9 +41,11 @@ h2 {
   background-clip: text;
 }
 
+/* Mobile-specific section styles */
 @media (max-width: 768px) {
   section {
-    padding: 60px 5%;
+    min-height: auto;
+    padding: 60px 5% 80px;
   }
   
   h2 {
