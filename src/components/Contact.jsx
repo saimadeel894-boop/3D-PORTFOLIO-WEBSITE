@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa'
 import './Contact.css'
