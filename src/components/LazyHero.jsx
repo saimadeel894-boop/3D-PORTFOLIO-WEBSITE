@@ -5,9 +5,9 @@ import ErrorBoundary from './ErrorBoundary';
 import HeroFallback from './HeroFallback';
 
 // Lazy load the 3D hero component
-const Hero3D = lazy(() => 
-  import('./Hero').then(module => ({ default: module.default }))
-  .catch(() => ({ default: HeroFallback }))
+const Hero3D = lazy(() =>
+  import('./Hero.jsx').then(module => ({ default: module.default }))
+    .catch(() => ({ default: HeroFallback }))
 );
 
 const LazyHero = () => {
@@ -20,24 +20,24 @@ const LazyHero = () => {
     const checkWebGL = async () => {
       // Add a small delay to ensure DOM is ready
       await new Promise(resolve => setTimeout(resolve, 100));
-      
+
       const isWebGL = detectWebGL();
       setWebglSupported(isWebGL);
-      
+
       // Only enable 3D if WebGL is supported and browser can handle it
       if (isWebGL) {
         // Check for mobile devices and low-end hardware
         const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-        const isLowEndDevice = navigator.hardwareConcurrency < 4 || 
-                              (navigator.deviceMemory && navigator.deviceMemory < 4);
-        
+        const isLowEndDevice = navigator.hardwareConcurrency < 4 ||
+          (navigator.deviceMemory && navigator.deviceMemory < 4);
+
         // For mobile or low-end devices, we might want to skip 3D for better performance
         // But we'll still allow it with a warning system
         setCanRender3D(true);
       } else {
         setCanRender3D(false);
       }
-      
+
       setIsChecking(false);
     };
 
@@ -57,7 +57,7 @@ const LazyHero = () => {
   // If WebGL is supported, try to render 3D with fallback
   return (
     <ErrorBoundary fallback={<HeroFallback />}>
-      <Suspense fallback={<HeroFallback />}>        
+      <Suspense fallback={<HeroFallback />}>
         {canRender3D ? <Hero3D /> : <HeroFallback />}
       </Suspense>
     </ErrorBoundary>

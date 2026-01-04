@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 
-import ErrorBoundary from './components/ErrorBoundary'
+import ErrorBoundary from './components/ErrorBoundary.jsx'
 
 // Add basic error handling for the entire app
 window.addEventListener('error', (event) => {
@@ -30,7 +30,7 @@ try {
   );
 } catch (error) {
   console.error('Failed to render app:', error);
-  
+
   // Fallback UI if React fails to render
   document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
