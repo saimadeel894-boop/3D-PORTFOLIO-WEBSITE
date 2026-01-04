@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 
+import ErrorBoundary from './components/ErrorBoundary'
+
 // Add basic error handling for the entire app
 window.addEventListener('error', (event) => {
   console.error('Global error:', event.error);
@@ -15,7 +17,15 @@ window.addEventListener('unhandledrejection', (event) => {
 try {
   ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-      <App />
+      <ErrorBoundary fallback={
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh', background: '#000', color: '#fff' }}>
+          <h1>Something went wrong</h1>
+          <p>Please refresh the page.</p>
+          <button onClick={() => window.location.reload()} style={{ marginTop: '20px', padding: '10px 20px', borderRadius: '50px' }}>Refresh</button>
+        </div>
+      }>
+        <App />
+      </ErrorBoundary>
     </React.StrictMode>,
   );
 } catch (error) {

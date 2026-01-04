@@ -10,7 +10,9 @@ body {
   overflow-y: auto;
   background: #000;
   color: #fff;
-  /* Ensure content is scrollable */
+  width: 100%;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
 }
 
 :root {
@@ -27,6 +29,9 @@ html {
 
 #root {
   width: 100%;
-  min-height: 100vh;
+  min-height: 100vh; /* Fallback */
+  min-height: 100dvh;
   overflow: visible;
+  display: flex;
+  flex-direction: column;
 }

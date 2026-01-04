@@ -2,7 +2,8 @@
   background: var(--bg-dark);
   padding: 100px 5%;
   position: relative;
-  overflow: visible; /* Ensure content is not hidden */
+  overflow: visible;
+  /* Ensure content is not hidden */
   min-height: auto;
 }
 
@@ -31,8 +32,9 @@
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
 }
 
 .project-card {
@@ -180,16 +182,16 @@
   .projects {
     padding: 60px 5%;
   }
-  
+
   .projects h2 {
     font-size: 2rem;
   }
-  
+
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   .project-links {
     flex-direction: column;
   }

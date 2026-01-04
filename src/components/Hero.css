@@ -19,60 +19,63 @@
     padding-top: 20px;
     padding-bottom: 20px;
   }
-  
+
   /* Legacy styles for mobile */
   .hero h1 {
     font-size: 2.5rem;
   }
-  
+
   .hero-subtitle {
     font-size: 1.3rem;
   }
-  
+
   .hero-description {
     font-size: 1rem;
   }
-  
+
   .hero-3d {
     height: 300px;
   }
-  
+
   .btn {
     padding: 0.8rem 2rem;
     font-size: 1rem;
   }
-  
+
   .hero-immersive {
-    padding: 0 15px; /* Reduced padding for mobile */
+    padding: 0 15px;
+    /* Reduced padding for mobile */
   }
-  
+
   .hero-overlay {
-    padding: 40px 25px; /* Adjusted padding for mobile */
-    border-radius: 15px; /* Slightly smaller radius on mobile */
+    padding: 40px 25px;
+    /* Adjusted padding for mobile */
+    border-radius: 15px;
+    /* Slightly smaller radius on mobile */
   }
-  
+
   .hero-content-container {
     max-width: 100%;
   }
-  
+
   .hero-title-immersive {
     font-size: clamp(1.8rem, 8vw, 2.5rem);
     line-height: 1.2;
     margin-bottom: 1rem;
   }
-  
+
   .hero-subtitle-immersive {
     font-size: 1.1rem;
     line-height: 1.5;
     margin-bottom: 1.5rem;
   }
-  
+
   .hero-cta-group {
     flex-direction: column;
     gap: 1.2rem;
     margin-bottom: 1.5rem;
   }
-  
+
   .cta-primary,
   .cta-secondary {
     width: 100%;
@@ -80,32 +83,32 @@
     padding: 0.9rem 1.5rem;
     font-size: 1rem;
   }
-  
+
   .hero-stats {
     flex-direction: column;
     gap: 1.2rem;
     padding-top: 1.2rem;
     align-items: center;
   }
-  
+
   .stat-item {
     text-align: center;
   }
-  
+
   .stat-divider {
     display: none;
   }
-  
+
   .scroll-prompt {
     bottom: 25px;
     font-size: 0.8rem;
   }
-  
+
   .scroll-icon {
     width: 20px;
     height: 35px;
   }
-  
+
   .scroll-icon::after {
     width: 3px;
     height: 6px;
@@ -132,15 +135,26 @@
   width: 100%;
   max-width: 1400px;
   padding: 0 5%;
-  pointer-events: auto;
-  /* Ensure content is always above 3D scene */
+  pointer-events: none;
+  /* Let clicks pass through container generally */
   margin: 0 auto;
-  /* Add max-width to center content */
-  /* Add subtle dark overlay behind text */
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(10, 10, 10, 0.7) 100%);
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content-container {
+  max-width: 800px;
+  pointer-events: auto;
+  /* Re-enable clicks for content */
+  position: relative;
+  width: 100%;
+  padding: 40px;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(10, 10, 10, 0.8) 100%);
   border-radius: 20px;
-  padding: 60px 40px;
-  /* Ensure text is readable against 3D background */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .hero-content-container {
@@ -173,9 +187,11 @@
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
@@ -225,8 +241,13 @@
 }
 
 @keyframes shimmer {
-  0% { background-position: 0% center; }
-  100% { background-position: 200% center; }
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
 }
 
 .hero-subtitle-immersive {
@@ -410,7 +431,7 @@
   .hero-title-immersive {
     font-size: clamp(2rem, 8vw, 3.5rem);
   }
-  
+
   .hero-stats {
     gap: 2rem;
   }
@@ -418,158 +439,4 @@
 
 
 
-/* Legacy Hero Styles (keeping for compatibility) */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a0a1a 100%);
-}
-
-.hero-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-  max-width: 1400px;
-  width: 100%;
-  padding: 0 5%;
-}
-
-.hero-content {
-  z-index: 2;
-}
-
-.hero h1 {
-  font-size: 4rem;
-  margin-bottom: 1rem;
-  line-height: 1.2;
-}
-
-.highlight {
-  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.hero-subtitle {
-  font-size: 2rem;
-  color: #aaa;
-  margin-bottom: 1.5rem;
-  font-weight: 400;
-}
-
-.hero-description {
-  font-size: 1.2rem;
-  color: #888;
-  margin-bottom: 2rem;
-  line-height: 1.6;
-  max-width: 500px;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.btn {
-  padding: 1rem 2.5rem;
-  border-radius: 50px;
-  text-decoration: none;
-  font-size: 1.1rem;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  display: inline-block;
-  cursor: pointer;
-  border: 2px solid transparent;
-}
-
-.btn-primary {
-  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-  color: #000;
-}
-
-.btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4);
-}
-
-.btn-secondary {
-  background: transparent;
-  border: 2px solid var(--primary-color);
-  color: var(--primary-color);
-}
-
-.btn-secondary:hover {
-  background: var(--primary-color);
-  color: #000;
-  transform: translateY(-3px);
-}
-
-.hero-3d {
-  height: 600px;
-  position: relative;
-}
-
-.scroll-indicator {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.mouse {
-  width: 30px;
-  height: 50px;
-  border: 2px solid var(--primary-color);
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  padding-top: 10px;
-}
-
-.wheel {
-  width: 4px;
-  height: 10px;
-  background: var(--primary-color);
-  border-radius: 2px;
-}
-
-@media (max-width: 1024px) {
-  .hero-container {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .hero-content {
-    order: 2;
-  }
-
-  .hero-3d {
-    order: 1;
-    height: 400px;
-  }
-
-  .hero h1 {
-    font-size: 3rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1.5rem;
-  }
-
-  .hero-description {
-    margin: 0 auto 2rem;
-  }
-
-  .hero-buttons {
-    justify-content: center;
-  }
-}
-
-
+/* Legacy Styles Removed */
