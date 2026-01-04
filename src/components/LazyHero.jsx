@@ -16,7 +16,6 @@ const LazyHero = () => {
   const [isChecking, setIsChecking] = useState(true);
 
   useEffect(() => {
-    // Check WebGL support after component mounts
     const checkWebGL = async () => {
       // Add a small delay to ensure DOM is ready
       await new Promise(resolve => setTimeout(resolve, 100));
@@ -43,6 +42,12 @@ const LazyHero = () => {
 
     checkWebGL();
   }, []);
+
+  // Handler for import errors
+  const handleLoadError = () => {
+    console.warn("Failed to load 3D Hero component, switching to fallback.");
+    setCanRender3D(false);
+  }
 
   // If still checking, show fallback
   if (isChecking) {

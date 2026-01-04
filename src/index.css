@@ -13,6 +13,8 @@ body {
   width: 100%;
   position: relative;
   -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  /* Remove tap highlight on mobile */
 }
 
 :root {
@@ -29,7 +31,8 @@ html {
 
 #root {
   width: 100%;
-  min-height: 100vh; /* Fallback */
+  min-height: 100vh;
+  /* Fallback */
   min-height: 100dvh;
   overflow: visible;
   display: flex;

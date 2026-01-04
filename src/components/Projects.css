@@ -2,8 +2,8 @@
   background: var(--bg-dark);
   padding: 100px 5%;
   position: relative;
-  overflow: visible;
-  /* Ensure content is not hidden */
+  overflow: hidden;
+  /* Safer for mobile */
   min-height: auto;
 }
 

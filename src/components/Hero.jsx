@@ -9,16 +9,32 @@ import './Hero.css'
 const SafeCanvas = ({ children, ...props }) => {
   try {
     // Check if Canvas is available and WebGL is supported
-    if (typeof window !== 'undefined' && window.WebGLRenderingContext) {
-      const canvas = document.createElement('canvas');
-      const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-      if (!gl) {
-        console.warn('WebGL not supported, falling back to non-3D content');
+    if (typeof window !== 'undefined') {
+      try {
+        const canvas = document.createElement('canvas');
+        const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+        if (!gl) {
+          console.warn('WebGL not supported, falling back to non-3D content');
+          return null;
+        }
+      } catch (e) {
+        console.error("WebGL context check failed:", e);
         return null;
       }
     }
-    
-    return <Canvas {...props}>{children}</Canvas>;
+
+    return (
+      <React.Suspense fallback={null}>
+        <Canvas {...props} onCreated={({ gl }) => {
+          gl.domElement.addEventListener('webglcontextlost', (event) => {
+            event.preventDefault();
+            console.warn('WebGL Context Lost');
+          }, false);
+        }}>
+          {children}
+        </Canvas>
+      </React.Suspense>
+    );
   } catch (error) {
     console.error('Three.js Canvas error:', error);
     return null;
@@ -57,7 +73,7 @@ const FloatingWorkstation = () => {
   const meshRef = useRef()
   const groupRef = useRef()
   const particlesRef = useRef()
-  
+
   useFrame(({ clock }) => {
     const t = clock.getElapsedTime()
     if (meshRef.current) {
@@ -92,26 +108,26 @@ const FloatingWorkstation = () => {
           />
         </Sphere>
       </Float>
-      
+
       {/* Orbiting rings with enhanced glow */}
       <mesh rotation={[Math.PI / 2, 0, 0]}>
         <torusGeometry args={[2.5, 0.08, 16, 100]} />
-        <meshStandardMaterial 
-          color="#ff00ff" 
-          emissive="#ff00ff" 
-          emissiveIntensity={0.8} 
-          metalness={0.9} 
+        <meshStandardMaterial
+          color="#ff00ff"
+          emissive="#ff00ff"
+          emissiveIntensity={0.8}
+          metalness={0.9}
           roughness={0.1}
         />
       </mesh>
-      
+
       <mesh rotation={[Math.PI / 3, Math.PI / 4, 0]}>
         <torusGeometry args={[2.8, 0.05, 16, 100]} />
-        <meshStandardMaterial 
-          color="#00ffff" 
-          emissive="#00ffff" 
-          emissiveIntensity={0.6} 
-          metalness={0.9} 
+        <meshStandardMaterial
+          color="#00ffff"
+          emissive="#00ffff"
+          emissiveIntensity={0.6}
+          metalness={0.9}
           roughness={0.1}
         />
       </mesh>
@@ -121,22 +137,22 @@ const FloatingWorkstation = () => {
         {[...Array(30)].map((_, i) => {
           const distance = 3 + (i % 5) * 0.5
           return (
-            <Float 
-              key={i} 
-              speed={1.5 + i * 0.1} 
-              rotationIntensity={0.5 + i * 0.1} 
+            <Float
+              key={i}
+              speed={1.5 + i * 0.1}
+              rotationIntensity={0.5 + i * 0.1}
               floatIntensity={1.5 + i * 0.1}
             >
-              <mesh 
-                position={[  
+              <mesh
+                position={[
                   Math.sin((i / 30) * Math.PI * 2) * distance,
                   Math.cos((i / 30) * Math.PI * 2) * distance * 0.5,
                   Math.sin((i / 30) * Math.PI) * distance * 0.5
                 ]}
               >
                 <sphereGeometry args={[0.08, 8, 8]} />
-                <meshStandardMaterial 
-                  color={i % 3 === 0 ? "#00ffff" : i % 3 === 1 ? "#ff00ff" : "#ffff00"} 
+                <meshStandardMaterial
+                  color={i % 3 === 0 ? "#00ffff" : i % 3 === 1 ? "#ff00ff" : "#ffff00"}
                   emissive={i % 3 === 0 ? "#00ffff" : i % 3 === 1 ? "#ff00ff" : "#ffff00"}
                   emissiveIntensity={0.9}
                   metalness={0.8}
@@ -147,37 +163,37 @@ const FloatingWorkstation = () => {
           )
         })}
       </group>
-      
+
       {/* Additional animated elements */}
       <mesh position={[0, 0, -2]}>
         <dodecahedronGeometry args={[0.3, 0]} />
-        <meshStandardMaterial 
-          color="#ffff00" 
-          emissive="#ffff00" 
-          emissiveIntensity={0.7} 
-          metalness={0.9} 
+        <meshStandardMaterial
+          color="#ffff00"
+          emissive="#ffff00"
+          emissiveIntensity={0.7}
+          metalness={0.9}
           roughness={0.1}
         />
       </mesh>
-      
+
       <mesh position={[2, 1.5, -1.5]}>
         <octahedronGeometry args={[0.2, 0]} />
-        <meshStandardMaterial 
-          color="#ff00ff" 
-          emissive="#ff00ff" 
-          emissiveIntensity={0.6} 
-          metalness={0.9} 
+        <meshStandardMaterial
+          color="#ff00ff"
+          emissive="#ff00ff"
+          emissiveIntensity={0.6}
+          metalness={0.9}
           roughness={0.1}
         />
       </mesh>
-      
+
       <mesh position={[-2, -1.5, -1.5]}>
         <tetrahedronGeometry args={[0.25, 0]} />
-        <meshStandardMaterial 
-          color="#00ffff" 
-          emissive="#00ffff" 
-          emissiveIntensity={0.6} 
-          metalness={0.9} 
+        <meshStandardMaterial
+          color="#00ffff"
+          emissive="#00ffff"
+          emissiveIntensity={0.6}
+          metalness={0.9}
           roughness={0.1}
         />
       </mesh>
@@ -188,7 +204,7 @@ const FloatingWorkstation = () => {
 // Camera animation component
 const CameraRig = () => {
   const { camera } = useThree()
-  
+
   useFrame(({ clock }) => {
     const t = clock.getElapsedTime()
     if (t < 3) {
@@ -196,7 +212,7 @@ const CameraRig = () => {
       camera.position.y = 1 - (t / 3) * 0.5
     }
   })
-  
+
   return null
 }
 
@@ -215,23 +231,23 @@ const Hero = () => {
         <SafeCanvas shadows style={{ pointerEvents: 'none' }}>
           <PerspectiveCamera makeDefault position={[0, 1, 8]} fov={75} />
           <CameraRig />
-          
+
           {/* Lighting */}
           <ambientLight intensity={0.3} />
           <directionalLight position={[10, 10, 5]} intensity={1} castShadow />
           <pointLight position={[-10, 5, -5]} intensity={1} color="#ff00ff" />
           <pointLight position={[10, -5, -5]} intensity={1} color="#00ffff" />
           <spotLight position={[0, 10, 0]} angle={0.3} penumbra={1} intensity={0.5} color="#ffffff" />
-          
+
           {/* Main 3D object */}
           <SafeFloatingWorkstation />
-          
+
           {/* Environment */}
           <SafeEnvironment preset="night" />
-          
+
           {/* Subtle controls */}
-          <SafeOrbitControls 
-            enableZoom={false} 
+          <SafeOrbitControls
+            enableZoom={false}
             enablePan={false}
             maxPolarAngle={Math.PI / 2}
             minPolarAngle={Math.PI / 3}
@@ -242,7 +258,7 @@ const Hero = () => {
       </div>
 
       <div className="hero-overlay">
-        <motion.div 
+        <motion.div
           className="hero-content-container"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 50 }}
@@ -270,7 +286,7 @@ const Hero = () => {
             <br />
             web & AI-powered products
           </motion.h1>
-          
+
           <motion.p
             className="hero-subtitle-immersive"
             initial={{ opacity: 0 }}
@@ -279,15 +295,15 @@ const Hero = () => {
           >
             From AI SaaS tools to conversion-focused ecommerce experiences.
           </motion.p>
-          
+
           <motion.div
             className="hero-cta-group"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.5 }}
           >
-            <motion.a 
-              href="#projects" 
+            <motion.a
+              href="#projects"
               className="cta-primary"
               whileHover={{ scale: 1.03, boxShadow: "0 0 30px rgba(0, 255, 255, 0.4)" }}
               whileTap={{ scale: 0.98 }}
@@ -295,8 +311,8 @@ const Hero = () => {
               <span>View Projects</span>
               <span className="cta-icon">→</span>
             </motion.a>
-            <motion.a 
-              href="#contact" 
+            <motion.a
+              href="#contact"
               className="cta-secondary"
               whileHover={{ scale: 1.03, borderColor: "#00ffff" }}
               whileTap={{ scale: 0.98 }}
@@ -329,7 +345,7 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      <motion.div 
+      <motion.div
         className="scroll-prompt"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

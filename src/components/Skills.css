@@ -2,7 +2,7 @@
   background: var(--bg-dark);
   padding: 100px 5%;
   position: relative;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .skills h2 {
@@ -157,6 +157,7 @@
   0% {
     transform: translate(-50%, -50%) rotate(0deg);
   }
+
   100% {
     transform: translate(-50%, -50%) rotate(360deg);
   }
@@ -166,16 +167,16 @@
   .skills {
     padding: 60px 5%;
   }
-  
+
   .skills h2 {
     font-size: 2rem;
   }
-  
+
   .skills-constellation {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   .orbit-container {
     width: 250px;
     height: 250px;

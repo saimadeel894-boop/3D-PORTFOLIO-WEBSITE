@@ -2,7 +2,7 @@
   background: var(--bg-dark);
   padding: 100px 5%;
   position: relative;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .contact h2 {
@@ -142,22 +142,22 @@
   .contact {
     padding: 60px 5%;
   }
-  
+
   .contact h2 {
     font-size: 2rem;
   }
-  
+
   .contact-content {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .contact-icons {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 0.5rem;
   }
-  
+
   .contact-icon {
     flex: 1;
     min-width: 120px;
