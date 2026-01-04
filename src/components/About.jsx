@@ -1,44 +1,40 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
 import './About.css'
 
 const About = () => {
-  const [ref, inView] = useInView({
-    threshold: 0.3,
-    triggerOnce: true
-  })
-
   return (
     <section id="about" className="about">
       <div className="container">
         <motion.h2
           initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           About Me
         </motion.h2>
 
-        <div ref={ref} className="about-content">
+        <div className="about-content">
           <motion.div
             className="about-text"
             initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h3>Problem Solver & Performance Driver</h3>
             <p>
-              I'm a frontend and full-stack engineer who builds products that matter. 
-              My approach combines technical excellence with business-focused thinking, 
+              I'm a frontend and full-stack engineer who builds products that matter.
+              My approach combines technical excellence with business-focused thinking,
               ensuring every line of code contributes to real-world impact.
             </p>
             <p>
-              With expertise in modern web technologies and AI integration, 
+              With expertise in modern web technologies and AI integration,
               I create experiences that not only look stunning but drive results.
             </p>
             <p>
-              I specialize in performance-driven development, turning complex requirements 
+              I specialize in performance-driven development, turning complex requirements
               into elegant, scalable solutions that stand the test of time.
             </p>
 
@@ -61,7 +57,8 @@ const About = () => {
           <motion.div
             className="about-3d-panel"
             initial={{ opacity: 0, x: 50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <div className="glass-panel">

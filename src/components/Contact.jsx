@@ -1,14 +1,9 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
 import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa'
 import './Contact.css'
 
 const Contact = () => {
-  const [ref, inView] = useInView({
-    threshold: 0.3,
-    triggerOnce: true
-  })
 
   const [formData, setFormData] = useState({
     name: '',
@@ -36,17 +31,19 @@ const Contact = () => {
       <div className="container">
         <motion.h2
           initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           Let's Build Something That Matters
         </motion.h2>
 
-        <div ref={ref} className="contact-content">
+        <div className="contact-content">
           <motion.div
             className="contact-form"
             initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
             <form onSubmit={handleSubmit}>
@@ -94,7 +91,8 @@ const Contact = () => {
           <motion.div
             className="contact-info"
             initial={{ opacity: 0, x: 50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
             <div className="contact-icons">
@@ -130,7 +128,7 @@ const Contact = () => {
                 <span>LinkedIn</span>
               </motion.a>
             </div>
-            
+
             <div className="contact-message">
               <p>Ready to bring your vision to life? Let's discuss your next project and create something extraordinary together.</p>
             </div>

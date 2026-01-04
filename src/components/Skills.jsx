@@ -1,13 +1,8 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
 import './Skills.css'
 
 const Skills = () => {
-  const [ref, inView] = useInView({
-    threshold: 0.3,
-    triggerOnce: true
-  })
 
   const skillCategories = [
     {
@@ -16,7 +11,7 @@ const Skills = () => {
       color: "#00ffff"
     },
     {
-      title: "Backend", 
+      title: "Backend",
       skills: ["Node.js", "APIs", "Express", "MongoDB", "PostgreSQL"],
       color: "#ff00ff"
     },
@@ -37,29 +32,31 @@ const Skills = () => {
       <div className="container">
         <motion.h2
           initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           Skills Constellation
         </motion.h2>
 
-        <div ref={ref} className="skills-constellation">
+        <div className="skills-constellation">
           {skillCategories.map((category, index) => (
             <motion.div
               key={category.title}
               className="skill-category"
               initial={{ opacity: 0, scale: 0.8 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
               transition={{ delay: index * 0.2, duration: 0.6 }}
             >
               <div className="category-header">
                 <h3>{category.title}</h3>
-                <div 
-                  className="category-indicator" 
+                <div
+                  className="category-indicator"
                   style={{ backgroundColor: category.color }}
                 ></div>
               </div>
-              
+
               <div className="skills-list">
                 {category.skills.map((skill, skillIndex) => (
                   <motion.div
@@ -78,10 +75,11 @@ const Skills = () => {
           ))}
         </div>
 
-        <motion.div 
+        <motion.div
           className="skills-visualization"
           initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
           transition={{ delay: 0.8, duration: 1 }}
         >
           <div className="orbit-container">

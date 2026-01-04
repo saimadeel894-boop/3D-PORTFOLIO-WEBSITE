@@ -1,14 +1,8 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
 import './Projects.css'
 
 const Projects = () => {
-  const [ref, inView] = useInView({
-    threshold: 0.3,
-    triggerOnce: true
-  })
-
   const projects = [
     {
       id: 1,
@@ -62,37 +56,59 @@ const Projects = () => {
     }
   ]
 
+  // Simplified animations that default to visible to prevent mobile hiding issues
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.5, staggerChildren: 0.1 }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+  }
+
   return (
     <section id="projects" className="projects">
       <div className="container">
         <motion.h2
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          initial="visible"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0, y: -20 },
+            visible: { opacity: 1, y: 0 }
+          }}
         >
           Featured Projects
         </motion.h2>
 
-        <div ref={ref} className="projects-grid">
-          {projects.map((project, index) => (
+        {/* Removed complex InView ref that was likely failing on mobile */}
+        <motion.div
+          className="projects-grid"
+          variants={containerVariants}
+          initial="visible"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+        >
+          {projects.map((project) => (
             <motion.div
               key={project.id}
               className="project-card"
-              initial={{ opacity: 0, y: 50 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: index * 0.2, duration: 0.6 }}
-              whileHover={{ scale: 1.02, y: -10 }}
+              variants={itemVariants}
             >
               <div className="project-header">
                 <h3>{project.title}</h3>
                 <p className="project-subtitle">{project.description}</p>
               </div>
-              
+
               <div className="project-content">
                 <p className="project-problem">
                   {project.businessProblem}
                 </p>
-                
+
                 <div className="project-features">
                   <h4>Key Features:</h4>
                   <ul>
@@ -101,7 +117,7 @@ const Projects = () => {
                     ))}
                   </ul>
                 </div>
-                
+
                 <div className="project-tech">
                   <h4>Tech Stack:</h4>
                   <div className="tech-tags">
@@ -111,18 +127,18 @@ const Projects = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="project-links">
-                <a 
-                  href={project.liveDemo} 
+                <a
+                  href={project.liveDemo}
                   className="project-link live-demo"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Live Demo
                 </a>
-                <a 
-                  href={project.github} 
+                <a
+                  href={project.github}
                   className="project-link github"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -132,7 +148,7 @@ const Projects = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )
