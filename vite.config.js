@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite' // Build trigger: 2026-01-03
+import { defineConfig } from 'vite' // Build trigger: Manual Force 2026-01-03-2
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
