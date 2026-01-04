@@ -5,7 +5,6 @@ export default defineConfig({
   plugins: [react()],
   build: {
     target: 'es2020',
-    minify: 'terser',
     cssCodeSplit: true,
     sourcemap: false,
     chunkSizeWarningLimit: 1000, // Increase the chunk size warning limit to accommodate large 3D libraries
