@@ -1,4 +1,3 @@
-import React from 'react'
 import { motion } from 'framer-motion'
 import './About.css'
 
@@ -64,21 +63,21 @@ const About = () => {
             <div className="glass-panel">
               <div className="strength-icon">
                 <div className="icon-circle">
-                  <span className="icon">⚡</span>
+                  <span className="icon" role="img" aria-label="lightning bolt">⚡</span>
                 </div>
                 <h4>Frontend Engineering</h4>
                 <p>Modern React, performance optimization</p>
               </div>
               <div className="strength-icon">
                 <div className="icon-circle">
-                  <span className="icon">🤖</span>
+                  <span className="icon" role="img" aria-label="robot">🤖</span>
                 </div>
                 <h4>AI Integration</h4>
                 <p>Smart systems and automation</p>
               </div>
               <div className="strength-icon">
                 <div className="icon-circle">
-                  <span className="icon">🎨</span>
+                  <span className="icon" role="img" aria-label="palette">🎨</span>
                 </div>
                 <h4>UI Excellence</h4>
                 <p>Cutting-edge design systems</p>
