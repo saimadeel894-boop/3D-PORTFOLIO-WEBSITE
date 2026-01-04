@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import Navbar from './components/Navbar'
-import LazyHero from './components/LazyHero'
-import About from './components/About'
-import Skills from './components/Skills'
-import Projects from './components/Projects'
-import Contact from './components/Contact'
+import Navbar from './components/Navbar.jsx'
+import LazyHero from './components/LazyHero.jsx'
+import About from './components/About.jsx'
+import Skills from './components/Skills.jsx'
+import Projects from './components/Projects.jsx'
+import Contact from './components/Contact.jsx'
 import './App.css'
 
 function App() {
