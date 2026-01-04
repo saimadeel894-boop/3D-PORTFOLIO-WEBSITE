@@ -64,7 +64,8 @@ const Skills = () => {
                     className="skill-item"
                     whileHover={{ scale: 1.05, color: category.color }}
                     initial={{ opacity: 0, y: 20 }}
-                    animate={inView ? { opacity: 1, y: 0 } : {}}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
                     transition={{ delay: (index * 0.2) + (skillIndex * 0.1), duration: 0.4 }}
                   >
                     {skill}
