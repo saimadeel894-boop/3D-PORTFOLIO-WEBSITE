@@ -207,10 +207,9 @@ const CameraRig = () => {
 
   useFrame(({ clock }) => {
     const t = clock.getElapsedTime()
-    if (t < 3) {
-      camera.position.z = 8 - (t / 3) * 1
-      camera.position.y = 1 - (t / 3) * 0.5
-    }
+    // Slow, continuous movement for a cinematic feel
+    camera.position.z = 8 - Math.sin(t * 0.1) * 0.5
+    camera.position.y = 1 + Math.sin(t * 0.15) * 0.2
   })
 
   return null
@@ -280,11 +279,9 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            I design and build
+            I design and build <span className="gradient-text">high-performance</span>
             <br />
-            <span className="gradient-text">high-performance</span>
-            <br />
-            web & AI-powered products
+            web & AI-powered products.
           </motion.h1>
 
           <motion.p
@@ -293,7 +290,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.5 }}
           >
-            From AI SaaS tools to conversion-focused ecommerce experiences.
+            AI SaaS tools, ecommerce platforms, and modern web experiences.
           </motion.p>
 
           <motion.div

@@ -24,17 +24,13 @@ const About = () => {
           >
             <h3>Problem Solver & Performance Driver</h3>
             <p>
-              I'm a frontend and full-stack engineer who builds products that matter.
-              My approach combines technical excellence with business-focused thinking,
-              ensuring every line of code contributes to real-world impact.
+              I specialize in <strong>clean, scalable frontend architecture</strong> and <strong>performance-driven development</strong>.
             </p>
             <p>
-              With expertise in modern web technologies and AI integration,
-              I create experiences that not only look stunning but drive results.
+              My approach combines technical excellence with a problem-solving mindset, ensuring every application is built for speed, stability, and growth.
             </p>
             <p>
-              I specialize in performance-driven development, turning complex requirements
-              into elegant, scalable solutions that stand the test of time.
+              Whether it's complex AI integrations or pixel-perfect UI/UX, I deliver solutions that drive real business value.
             </p>
 
             <div className="about-stats">
@@ -66,21 +62,21 @@ const About = () => {
                   <span className="icon" role="img" aria-label="lightning bolt">⚡</span>
                 </div>
                 <h4>Frontend Engineering</h4>
-                <p>Modern React, performance optimization</p>
+                <p>React, scalable systems</p>
               </div>
               <div className="strength-icon">
                 <div className="icon-circle">
                   <span className="icon" role="img" aria-label="robot">🤖</span>
                 </div>
                 <h4>AI Integration</h4>
-                <p>Smart systems and automation</p>
+                <p>SaaS & Automation tools</p>
               </div>
               <div className="strength-icon">
                 <div className="icon-circle">
                   <span className="icon" role="img" aria-label="palette">🎨</span>
                 </div>
-                <h4>UI Excellence</h4>
-                <p>Cutting-edge design systems</p>
+                <h4>UI Design</h4>
+                <p>Modern, immersive interfaces</p>
               </div>
             </div>
           </motion.div>

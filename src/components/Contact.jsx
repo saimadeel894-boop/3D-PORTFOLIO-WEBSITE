@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa'
+import { FaEnvelope, FaGithub, FaLinkedin, FaInstagram, FaWhatsapp } from 'react-icons/fa'
 import './Contact.css'
 
 const Contact = () => {
@@ -106,6 +106,17 @@ const Contact = () => {
                 <span>Email</span>
               </motion.a>
               <motion.a
+                href="https://www.linkedin.com/in/saim-adeel-890a67376"
+                className="contact-icon"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1, color: '#0077b5' }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <FaLinkedin />
+                <span>LinkedIn</span>
+              </motion.a>
+              <motion.a
                 href="https://github.com"
                 className="contact-icon"
                 target="_blank"
@@ -117,15 +128,26 @@ const Contact = () => {
                 <span>GitHub</span>
               </motion.a>
               <motion.a
-                href="https://linkedin.com"
+                href="https://www.instagram.com/deepwebvisions?igsh=eXA3Nnh1NHM1ODJp"
                 className="contact-icon"
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.1, color: '#ffff00' }}
+                whileHover={{ scale: 1.1, color: '#E1306C' }}
                 whileTap={{ scale: 0.9 }}
               >
-                <FaLinkedin />
-                <span>LinkedIn</span>
+                <FaInstagram />
+                <span>Instagram</span>
+              </motion.a>
+              <motion.a
+                href="https://wa.me/message/UD5YCP4IHJT4G1"
+                className="contact-icon"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1, color: '#25D366' }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <FaWhatsapp />
+                <span>WhatsApp</span>
               </motion.a>
             </div>
 
