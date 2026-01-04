@@ -1,8 +1,8 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
-import { detectWebGL } from '../utils/webglDetector';
-import LoadingSpinner from './LoadingSpinner';
-import ErrorBoundary from './ErrorBoundary';
-import HeroFallback from './HeroFallback';
+import { detectWebGL } from '../utils/webglDetector.js';
+import LoadingSpinner from './LoadingSpinner.jsx';
+import ErrorBoundary from './ErrorBoundary.jsx';
+import HeroFallback from './HeroFallback.jsx';
 
 // Lazy load the 3D hero component
 const Hero3D = lazy(() =>
