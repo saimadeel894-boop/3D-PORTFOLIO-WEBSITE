@@ -1,0 +1,29 @@
+import { defineConfig } from 'vite' // Build trigger: Manual Force 2026-01-03-2
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  plugins: [react()],
+  build: {
+    target: 'es2020',
+    cssCodeSplit: true,
+    sourcemap: false,
+    chunkSizeWarningLimit: 1000, // Increase the chunk size warning limit to accommodate large 3D libraries
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom'],
+          'three-vendor': ['three', '@react-three/fiber'],
+          'drei-vendor': ['@react-three/drei'],
+          'animation-vendor': ['framer-motion'],
+        },
+      },
+    },
+  },
+  optimizeDeps: {
+    include: ['three', '@react-three/fiber', '@react-three/drei'],
+  },
+  server: {
+    host: true,
+    port: 3000,
+  },
+})

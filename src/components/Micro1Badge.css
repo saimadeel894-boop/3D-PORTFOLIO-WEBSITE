@@ -1,0 +1,81 @@
+.micro1-section {
+  padding: 4rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.micro1-card {
+  background: rgba(0, 255, 128, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 128, 0.2);
+  border-radius: 16px;
+  padding: 2rem 3rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 8px 32px rgba(0, 255, 128, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.micro1-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 255, 128, 0.2);
+  border-color: rgba(0, 255, 128, 0.4);
+}
+
+.micro1-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.micro1-check-icon {
+  font-size: 3rem;
+  color: #00ff80;
+  filter: drop-shadow(0 0 10px rgba(0, 255, 128, 0.5));
+}
+
+.micro1-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.micro1-title {
+  font-size: 1.25rem;
+  color: #ffffff;
+  margin: 0;
+}
+
+.micro1-subtext {
+  font-size: 0.95rem;
+  color: #a0aec0;
+  margin: 0;
+}
+
+.micro1-date {
+  font-size: 0.85rem;
+  color: #00ff80;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  display: inline-block;
+  background: rgba(0, 255, 128, 0.1);
+  padding: 4px 12px;
+  border-radius: 12px;
+  width: fit-content;
+}
+
+@media (max-width: 768px) {
+  .micro1-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+    gap: 1.5rem;
+  }
+  
+  .micro1-date {
+    margin: 0.5rem auto 0;
+  }
+}

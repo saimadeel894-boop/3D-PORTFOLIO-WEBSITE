@@ -1,0 +1,23 @@
+HOW TO ADD YOUR PROFILE IMAGE
+==============================
+
+To add your profile picture to the portfolio website:
+
+1. Prepare your image:
+   - Choose a professional photo of yourself
+   - Recommended size: 800x800 pixels or larger
+   - Supported formats: JPG, PNG, or WebP
+
+2. Add the image to the project:
+   - Rename your image file to "profile.jpg" (or "profile.png")
+   - Place it in the "public" folder
+   - Location: public/profile.jpg
+
+3. The website will automatically display your image in the About section
+
+4. If you want to use a different filename:
+   - Open: src/components/About.jsx
+   - Find line: src="/profile.jpg"
+   - Change it to: src="/your-image-name.jpg"
+
+Note: If no image is found, a cool animated code placeholder will be shown instead.
