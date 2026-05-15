@@ -1,6 +1,6 @@
 import React, { useState, Suspense, lazy } from 'react'
 import Navbar from './components/Navbar.jsx'
-import ParticleBackground from './components/ParticleBackground.jsx'
+const Globe3D = lazy(() => import('./components/Globe3D.jsx'))
 import Hero from './components/Hero.jsx'
 import About from './components/About.jsx'
 import Skills from './components/Skills.jsx'
@@ -70,7 +70,7 @@ function App() {
           <div className="loader-ring" />
         </div>
       }>
-        <ParticleBackground />
+        <Globe3D />
         <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
         <div className="animate-on-scroll">
           <Hero />
