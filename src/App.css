@@ -145,18 +145,3 @@ h2 {
   background: linear-gradient(#6366f1, #00e5ff);
   border-radius: 3px;
 }
-
-/* Premium Scroll Animations */
-.animate-section {
-  opacity: 0;
-  transform: translateY(60px) scale(0.98);
-  filter: blur(10px);
-  transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform, filter;
-}
-
-.animate-section.is-visible {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  filter: blur(0);
-}
