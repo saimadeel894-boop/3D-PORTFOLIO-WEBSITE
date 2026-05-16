@@ -1,191 +1,122 @@
-import { motion } from 'framer-motion'
+import { useEffect } from 'react'
 import './Projects.css'
 
-const Projects = () => {
-  const allProjects = [
+const ProjectsSection = () => {
+  const projects = [
     {
       id: "p1",
-      title: "AutoMarket.de | German Automotive Marketplace",
-      description: "German car dealerships had no unified digital marketplace. Built a full-stack Next.js 14 platform with SSR, multi-role authentication for buyers, dealers, and admins, advanced search filtering, and PostgreSQL backend — competing with AutoScout24.",
-      techStack: ["Next.js 14", "TypeScript", "NestJS", "PostgreSQL", "Tailwind CSS", "Vercel"],
-      liveDemo: "https://german-motor-car-demo-website.vercel.app",
-      github: "https://github.com/saimadeel894-boop/German-motor-car-demo-website-",
-      badge: "🔥 Flagship Project"
+      title: "BeautyChain",
+      subtitle: "AI-Powered Brand & Influencer SaaS Platform",
+      description: "Full-scale startup SaaS connecting brands, manufacturers, and influencers. AI matching engine using GPT-4 with 0–100 compatibility scoring. Real-time messaging, milestone escrow payments, PDF contract generation, and role-based dashboards for 3 user types.",
+      techStack: ["React", "Node.js", "OpenAI GPT-4", "Firebase", "Supabase", "REST APIs"],
+      badge: "🤖 AI Powered",
+      liveDemo: "https://brand-builder-launch.vercel.app/",
+      github: ""
     },
     {
       id: "p2",
-      title: "Vendour | Full-Scale React Native Mobile App",
-      description: "Production-grade React Native e-commerce app with 35+ screens — full buyer and seller flows, real-time chat, product listings, order management, push notifications, and native iOS & Android deployment via Expo. Built for a real client.",
-      techStack: ["React Native", "Expo", "Node.js", "Firebase", "Redux", "iOS & Android"],
-      badge: "📱 Mobile App"
+      title: "AutoMarket.de",
+      subtitle: "German Automotive Marketplace",
+      description: "Full-stack car marketplace with SSR-optimized listing pages indexed by Google in Germany. Multi-role auth for buyers, dealers, and admins. Advanced search with 10+ filters. Competing with AutoScout24.",
+      techStack: ["Next.js 14", "TypeScript", "NestJS", "PostgreSQL", "Tailwind CSS", "Vercel"],
+      badge: "🚗 Featured",
+      liveDemo: "https://german-motor-car-demo-website.vercel.app",
+      github: "https://github.com/saimadeel894-boop/German-motor-car-demo-website-"
     },
     {
       id: "p3",
-      title: "Vunex.live | Ultra-Premium Trading Platform",
-      description: "Built an ultra-premium trading terminal for a $15,000 client project. Features 3D interactive UI, 16 live Forex and Crypto pairs via Binance WebSocket, real-time candlestick charts, order book, P2P marketplace, and full admin suite.",
-      techStack: ["React", "Three.js", "WebSockets", "Binance API", "Node.js", "PostgreSQL"],
-      liveDemo: "https://venus-live-elite-trading-plateform.vercel.app",
-      github: "https://github.com/saimadeel894-boop/3D-TRADING-WEBSITE",
-      badge: "📎 Premium Build"
+      title: "Vunex.live",
+      subtitle: "Ultra-Premium Trading Terminal",
+      description: "$15,000 client project. Real-time trading terminal with live Binance WebSocket feeds for 16 pairs, Three.js 3D interface, candlestick charts via Canvas API, P2P marketplace with escrow, and full admin suite.",
+      techStack: ["React", "Three.js", "WebSockets", "Binance API", "Node.js", "Canvas API"],
+      badge: "💎 Premium Build",
+      liveDemo: "https://3-d-trading-website.vercel.app",
+      github: ""
     },
     {
       id: "p4",
-      title: "BeautyChain | Global Brand–Manufacturer–Influencer Platform",
-      description: "Startup-level SaaS connecting brands, manufacturers, and influencers in one ecosystem. AI-powered matching engine with 0–100 scoring, milestone escrow payments, real-time messaging, contract PDF generation, and multilingual support.",
-      techStack: ["React", "Node.js", "Firebase", "OpenAI API", "Supabase", "REST APIs"],
-      liveDemo: "http://beautychain.app/",
-      badge: "🤖 AI Powered"
-    },
-    {
-      id: "p5",
-      title: "Jimmy Electronics | Premium E-Commerce Platform",
-      description: "Premium electronics storefront with modern product grid, detail pages, cart system, and fully responsive shopping experience optimized for conversion.",
+      title: "Jimmy Electronics",
+      subtitle: "Premium E-Commerce Platform",
+      description: "Premium electronics storefront with modern product grid, detail pages, cart system, and fully responsive shopping experience built for high conversion.",
       techStack: ["React", "JavaScript", "CSS3", "Responsive Design"],
+      badge: "",
       liveDemo: "https://premium-e-commerce-build.vercel.app",
       github: "https://github.com/saimadeel894-boop/-Jimmy--Electronics--website"
     },
     {
+      id: "p5",
+      title: "Vendour App",
+      subtitle: "Smart Home & E-Commerce Mobile App",
+      description: "Production-grade React Native app with 35+ screens — smart home controls, e-commerce, real-time chat, push notifications, and full buyer/seller flows. Built for a real client. iOS and Android via Expo.",
+      techStack: ["React Native", "Expo SDK 54", "Node.js", "Firebase", "Redux", "iOS & Android"],
+      badge: "📱 Mobile App",
+      liveDemo: "https://play.google.com/store/apps/details?id=com.ikohs.home",
+      github: ""
+    },
+    {
       id: "p6",
-      title: "AI Content Humanizer | SaaS Tool",
-      description: "SaaS platform converting robotic AI-generated text into natural, human-like writing. Built for content creators and marketers needing SEO-friendly, readable outputs instantly.",
-      techStack: ["Next.js", "OpenAI API", "Tailwind CSS", "Vercel"],
-      liveDemo: "https://ai-humanize-saas-tool.vercel.app/",
-      github: "https://github.com/saimadeel894-boop/AI-HUMANIZE-SAAS-TOOL",
-      badge: "🤖 AI Powered"
+      title: "AI SaaS Suite",
+      subtitle: "AI SaaS Product Suite — 4 Platforms",
+      description: "Four deployed AI tools — AI Study Assistant, AI Content Humanizer, AI Image Caption Generator, and AI Flash Card Generator. All built with Next.js and OpenAI API. All live on Vercel.",
+      techStack: ["Next.js", "OpenAI API", "GPT-4", "Vision API", "Firebase", "Tailwind CSS"],
+      badge: "🤖 AI Powered",
+      liveDemo: "",
+      github: ""
     },
     {
       id: "p7",
-      title: "Mobile Shop | Modern Product Showcase",
-      description: "Sleek mobile shop website with clean product display, smooth animations, and modern responsive layout built for optimal mobile user experience.",
-      techStack: ["React", "JavaScript", "CSS3", "Responsive Design"],
-      liveDemo: "https://website-weaver-mauve.vercel.app",
-      github: "https://github.com/saimadeel894-boop/Mobile-shop-website"
+      title: "Essential London",
+      subtitle: "Ecommerce website",
+      description: "Essential London Ecommerce website. Modern storefront with smooth interactions and premium feel.",
+      techStack: ["React", "Next.js", "Tailwind CSS", "Vercel"],
+      badge: "",
+      liveDemo: "https://essential-london-style.vercel.app/",
+      github: ""
     },
     {
       id: "p8",
-      title: "Sports Boxing | High-Energy Showcase Website",
-      description: "Bold, high-energy sports and boxing website with dynamic hero sections, strong visual identity, and smooth scroll animations.",
-      techStack: ["React", "HTML", "CSS", "Animation"],
-      liveDemo: "https://hero-showcase-template.vercel.app",
-      github: "https://github.com/saimadeel894-boop/-SportsBoxingWebsite"
+      title: "Mobile Shop Website",
+      subtitle: "Modern Product Showcase",
+      description: "Sleek mobile product showcase with clean UI, smooth animations, and fully responsive layout optimized for mobile users.",
+      techStack: ["React", "JavaScript", "CSS3"],
+      badge: "",
+      liveDemo: "https://website-weaver-mauve.vercel.app",
+      github: "https://github.com/saimadeel894-boop/Mobile-shop-website"
     }
   ]
 
-  const flagshipProjects = allProjects.slice(0, 3);
-  const regularProjects = allProjects.slice(3);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { duration: 0.5, staggerChildren: 0.1 }
-    }
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
-  }
-
   return (
-    <section id="projects" className="projects">
+    <section id="projects" className="projects-section animate-section">
       <div className="container">
-        <motion.h2
-          className="section-heading"
-          initial="visible"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={{
-            hidden: { opacity: 0, y: -20 },
-            visible: { opacity: 1, y: 0 }
-          }}
-        >
-          Flagship Projects
-        </motion.h2>
-
-        <div className="case-studies-container">
-          {flagshipProjects.map((project) => (
-            <motion.div
-              key={project.id}
-              className="case-study-card"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "0px 0px -50px 0px" }}
-              variants={itemVariants}
-            >
-              <div className="cs-header">
-                <h3>{project.title.split('—')[0]}</h3>
-                {project.badge && <span className="cs-badge" style={project.badge.includes('🔥') ? {background: 'rgba(255,80,80,0.2)', color: '#ff5050'} : project.badge.includes('💎') ? {background: 'rgba(0,255,255,0.2)', color: '#00ffff'} : project.badge.includes('🤖') ? {background: 'rgba(200,100,255,0.2)', color: '#c864ff'} : {}}>{project.badge}</span>}
+        <h2 className="section-heading">Featured Projects</h2>
+        <div className="projects-grid">
+          {projects.map((project) => (
+            <div key={project.id} className="project-card">
+              {project.badge && <span className="project-badge">{project.badge}</span>}
+              <div className="project-header">
+                <h3>{project.title}</h3>
+                <p className="project-subtitle">{project.subtitle}</p>
               </div>
-              <h4 style={{color: '#aaa', marginTop: '5px', marginBottom: '15px'}}>{project.title.split('—')[1]}</h4>
-              <p className="cs-description" style={{marginBottom: '20px'}}>{project.description}</p>
-              
-              <div className="cs-footer" style={{marginTop: 'auto'}}>
-                <div className="tech-tags">
-                  {project.techStack.map((tech, idx) => (
-                    <span key={idx} className="tech-tag">{tech}</span>
-                  ))}
-                </div>
-                <div className="project-links">
-                  {project.liveDemo && <a href={project.liveDemo} className="project-link live-demo" target="_blank" rel="noopener noreferrer">Live Demo</a>}
-                  {project.github && <a href={project.github} className="project-link github" target="_blank" rel="noopener noreferrer">GitHub</a>}
-                </div>
+              <p className="project-desc">{project.description}</p>
+              <div className="tech-tags">
+                {project.techStack.map((tech, idx) => (
+                  <span key={idx} className="tech-tag">{tech}</span>
+                ))}
               </div>
-            </motion.div>
+              <div className="project-links">
+                {project.liveDemo && <a href={project.liveDemo} className="btn-live" target="_blank" rel="noopener noreferrer">Live Demo</a>}
+                {project.github ? (
+                  <a href={project.github} className="btn-github" target="_blank" rel="noopener noreferrer">GitHub</a>
+                ) : (
+                  <span className="btn-private">Private Client</span>
+                )}
+              </div>
+            </div>
           ))}
         </div>
-
-        <motion.h3 
-          className="section-heading"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={itemVariants}
-          style={{marginTop: '60px', textAlign: 'center'}}
-        >
-          Other Notable Works
-        </motion.h3>
-
-        <motion.div
-          className="projects-grid"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "0px 0px -100px 0px" }}
-        >
-          {regularProjects.map((project) => (
-            <motion.div
-              key={project.id}
-              className="project-card"
-              variants={itemVariants}
-            >
-              <div className="project-header">
-                <h3>{project.title.split('—')[0]}</h3>
-                <p className="project-subtitle">{project.title.split('—')[1]}</p>
-              </div>
-
-              <div className="project-content">
-                <p className="project-problem">{project.description}</p>
-                
-                <div className="project-tech">
-                  <div className="tech-tags">
-                    {project.techStack.map((tech, idx) => (
-                      <span key={idx} className="tech-tag">{tech}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="project-links">
-                {project.liveDemo && <a href={project.liveDemo} className="project-link live-demo" target="_blank" rel="noopener noreferrer">Live</a>}
-                {project.github && <a href={project.github} className="project-link github" target="_blank" rel="noopener noreferrer">Code</a>}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
     </section>
   )
 }
 
-export default Projects
+export default ProjectsSection

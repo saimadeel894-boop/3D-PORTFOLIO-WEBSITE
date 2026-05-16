@@ -1,13 +1,10 @@
-.projects {
-  background: var(--bg-dark);
-  padding: 100px 5%;
-  position: relative;
-  overflow: hidden;
-  /* Safer for mobile */
+.projects-section {
+  padding: 80px 20px;
+  background: transparent;
   min-height: auto;
 }
 
-.projects h2 {
+.projects-section h2 {
   text-align: center;
   margin-bottom: 3rem;
   font-size: 2.5rem;
@@ -18,302 +15,135 @@
   position: relative;
 }
 
-.projects h2::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 3px;
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-  border-radius: 3px;
-}
-
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
   width: 100%;
 }
 
 .project-card {
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 20px;
-  padding: 2rem;
-  backdrop-filter: blur(10px);
-  transition: all 0.35s ease;
-  position: relative;
   overflow: hidden;
+  transition: all 0.4s ease;
+  position: relative;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-card::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-}
-
-.project-card:hover::before {
-  transform: scaleX(1);
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,229,255,0.04), rgba(99,102,241,0.04));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
 }
 
 .project-card:hover {
-  transform: translateY(-8px) scale(1.01);
-  border-color: rgba(99, 102, 241, 0.4);
+  transform: translateY(-10px) scale(1.01);
+  border-color: rgba(0, 229, 255, 0.35);
   box-shadow:
     0 30px 60px rgba(0,0,0,0.4),
-    0 0 30px rgba(99, 102, 241, 0.15);
+    0 0 30px rgba(0,229,255,0.12);
 }
 
-.project-header {
-  margin-bottom: 1.5rem;
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.project-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(0, 229, 255, 0.1);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  border-radius: 20px;
+  color: #00e5ff;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  width: fit-content;
 }
 
 .project-header h3 {
-  color: var(--primary-color);
-  font-size: 1.5rem;
-  margin: 0 0 0.5rem 0;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 5px 0;
 }
 
 .project-subtitle {
-  color: var(--secondary-color);
-  font-size: 1rem;
-  margin: 0;
-  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+  margin: 0 0 20px 0;
 }
 
-.project-content {
-  margin-bottom: 1.5rem;
-}
-
-.project-problem {
-  color: #ccc;
+.project-desc {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 15px;
   line-height: 1.6;
-  margin-bottom: 1.5rem;
-  font-size: 1rem;
-}
-
-.project-features h4,
-.project-tech h4 {
-  color: var(--primary-color);
-  margin-bottom: 0.8rem;
-  font-size: 1rem;
-}
-
-.project-features ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.project-features ul li {
-  padding: 0.3rem 0;
-  color: #aaa;
-  position: relative;
-  padding-left: 1.5rem;
-}
-
-.project-features ul li::before {
-  content: '→';
-  position: absolute;
-  left: 0;
-  color: var(--primary-color);
+  margin-bottom: 20px;
+  flex-grow: 1;
 }
 
 .tech-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 8px;
+  margin-bottom: 25px;
 }
 
 .tech-tag {
-  padding: 0.3rem 0.8rem;
-  background: rgba(0, 255, 255, 0.1);
-  border: 1px solid rgba(0, 255, 255, 0.3);
+  padding: 4px 12px;
+  border: 1px solid rgba(0, 229, 255, 0.3);
   border-radius: 20px;
-  color: var(--primary-color);
-  font-size: 0.8rem;
-  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
 }
 
 .project-links {
   display: flex;
-  gap: 1rem;
-  margin-top: 1.5rem;
+  gap: 15px;
+  position: relative;
+  z-index: 2;
 }
 
-.project-link {
-  padding: 0.8rem 1.5rem;
-  border-radius: 50px;
-  text-decoration: none;
+.btn-live, .btn-github, .btn-private {
+  padding: 8px 20px;
+  border-radius: 5px;
+  font-size: 14px;
   font-weight: 600;
-  font-size: 0.9rem;
+  text-decoration: none;
   transition: all 0.3s ease;
   display: inline-block;
 }
 
-.live-demo {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+.btn-live {
+  background: #00e5ff;
   color: #000;
 }
 
-.github {
+.btn-live:hover {
+  background: #fff;
+  color: #00e5ff;
+}
+
+.btn-github {
   background: transparent;
-  border: 2px solid var(--primary-color);
-  color: var(--primary-color);
+  border: 1px solid #ffffff;
+  color: #ffffff;
 }
 
-.live-demo:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
+.btn-github:hover {
+  background: rgba(255,255,255,0.1);
 }
 
-.github:hover {
-  background: rgba(0, 255, 255, 0.1);
-  transform: translateY(-2px);
-}
-
-/* Case Studies Section */
-.case-studies-container {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  margin-bottom: 4rem;
-}
-
-.case-study-card {
-  background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(10, 10, 10, 0.95));
-  border: 1px solid rgba(0, 255, 255, 0.2);
-  border-left: 4px solid #00ffff;
-  border-radius: 15px;
-  padding: 2.5rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.case-study-card:hover {
-  transform: translateY(-8px) scale(1.01);
-  box-shadow:
-    0 30px 60px rgba(0,0,0,0.4),
-    0 0 30px rgba(0, 229, 255, 0.15);
-  border-color: rgba(0, 229, 255, 0.4);
-}
-
-.cs-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.5rem;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.cs-header h3 {
-  font-size: 2rem;
-  color: #fff;
-  margin: 0;
-}
-
-.cs-badge {
-  background: rgba(0, 255, 255, 0.15);
-  color: #00ffff;
-  padding: 0.4rem 1rem;
-  border-radius: 50px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border: 1px solid rgba(0, 255, 255, 0.3);
-}
-
-.cs-description {
-  color: #00ffff;
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-  font-weight: 500;
-}
-
-.cs-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
-  background: rgba(255, 255, 255, 0.02);
-  padding: 1.5rem;
-  border-radius: 10px;
-}
-
-.cs-section h4 {
-  color: #fff;
-  font-size: 1.1rem;
-  margin-bottom: 0.8rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.cs-section h4::before {
-  content: '⚡';
-  font-size: 0.9rem;
-}
-
-.cs-section p {
-  color: #aaa;
-  line-height: 1.6;
-  font-size: 0.95rem;
-  margin: 0;
-}
-
-.cs-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.other-projects-title {
-  text-align: center;
-  font-size: 2rem;
-  color: #fff;
-  margin-bottom: 2rem;
-}
-
-.project-text-block {
-  color: #ccc;
-  line-height: 1.5;
-  margin-bottom: 1rem;
-  font-size: 0.95rem;
-}
-
-.project-text-block strong {
-  color: #fff;
-}
-
-@media (max-width: 768px) {
-  .projects {
-    padding: 60px 5%;
-  }
-
-  .projects h2 {
-    font-size: 2rem;
-  }
-
-  .projects-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .project-links {
-    flex-direction: column;
-  }
+.btn-private {
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.5);
+  border: 1px solid rgba(255,255,255,0.2);
 }

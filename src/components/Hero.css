@@ -1,8 +1,8 @@
 .hero-section {
-  min-height: 100vh;
-  min-height: 100dvh;
   position: relative;
   overflow: hidden;
+  min-height: 100vh;
+  min-height: 100dvh;
   background: #000;
   display: flex;
   align-items: center;
@@ -14,12 +14,13 @@
 .hero-section::before {
   content: '';
   position: absolute;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
-  top: -200px;
-  left: -200px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%);
+  top: -150px;
+  left: -150px;
   pointer-events: none;
+  animation: drift 8s ease-in-out infinite alternate;
   z-index: 0;
 }
 
@@ -28,11 +29,17 @@
   position: absolute;
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(0, 229, 255, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0,229,255,0.08) 0%, transparent 70%);
   bottom: -100px;
   right: -100px;
   pointer-events: none;
+  animation: drift 10s ease-in-out infinite alternate-reverse;
   z-index: 0;
+}
+
+@keyframes drift {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(30px, 30px); }
 }
 
 /* Mobile hero */

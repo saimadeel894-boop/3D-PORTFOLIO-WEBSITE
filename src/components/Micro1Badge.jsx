@@ -1,28 +1,26 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { FaCheckCircle } from 'react-icons/fa';
 import './Micro1Badge.css';
 
 const Micro1Badge = () => {
   return (
-    <section id="certification" className="micro1-section">
-      <div className="container">
-        <motion.div 
-          className="micro1-card"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="micro1-icon-container">
-            <FaCheckCircle className="micro1-check-icon" />
+    <section id="certification" className="certification-section animate-section">
+      <div className="cert-card">
+        <div className="cert-left">
+          <div className="cert-verified-badge">
+            ✓ VERIFIED
           </div>
-          <div className="micro1-content">
-            <h3 className="micro1-title">Certified by micro1 as Senior Full Stack Web & App Developer</h3>
-            <p className="micro1-subtext">micro1 works with Silicon Valley companies including OpenAI and Anthropic</p>
-            <span className="micro1-date">April 7, 2026</span>
-          </div>
-        </motion.div>
+          <h3>micro1 Certified</h3>
+          <p className="cert-title">Senior Full Stack Web & App Developer</p>
+          <p className="cert-date">Issued April 7, 2026</p>
+          <p className="cert-desc">
+            micro1 is an AI hiring platform trusted by OpenAI and Anthropic.
+            Passing their AI-proctored technical interview places you in the
+            top tier of global developers.
+          </p>
+        </div>
+        <div className="cert-right">
+          <img src="/micro.png" alt="Micro1 Certification" className="cert-logo" />
+        </div>
       </div>
     </section>
   );

@@ -2,6 +2,7 @@ import React, { useState, Suspense, lazy } from 'react'
 import Navbar from './components/Navbar.jsx'
 const Globe3D = lazy(() => import('./components/Globe3D.jsx'))
 import Hero from './components/Hero.jsx'
+import StatsSection from './components/StatsSection.jsx'
 import About from './components/About.jsx'
 import Skills from './components/Skills.jsx'
 const ProjectsSection = lazy(() => import('./components/ProjectsSection.jsx'))
@@ -36,19 +37,21 @@ function App() {
     }
     window.addEventListener('scroll', handleScroll)
     
-    // Intersection Observer for scroll animations
     const observer = new IntersectionObserver(
-      entries => entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.style.opacity = '1';
-          e.target.style.transform = 'translateY(0)';
-        }
-      }),
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      },
       { threshold: 0.1 }
     );
-    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+
+    document.querySelectorAll('.animate-section').forEach((el) => {
       el.style.opacity = '0';
-      el.style.transform = 'translateY(30px)';
+      el.style.transform = 'translateY(40px)';
       el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
       observer.observe(el);
     });
@@ -72,22 +75,25 @@ function App() {
       }>
         <Globe3D />
         <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
-        <div className="animate-on-scroll">
+        <div className="animate-section">
           <Hero />
         </div>
-        <div className="animate-on-scroll">
+        <div className="animate-section">
+          <StatsSection />
+        </div>
+        <div className="animate-section">
           <About />
         </div>
-        <div className="animate-on-scroll">
-          <Micro1Badge />
-        </div>
-        <div className="animate-on-scroll">
+        <div className="animate-section">
           <Skills />
         </div>
-        <div className="animate-on-scroll">
+        <div className="animate-section">
+          <Micro1Badge />
+        </div>
+        <div className="animate-section">
           <ProjectsSection />
         </div>
-        <div className="animate-on-scroll">
+        <div className="animate-section">
           <Contact />
         </div>
         <Footer />
