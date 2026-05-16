@@ -34,20 +34,6 @@ const About = () => {
               Certified Senior Developer by <span style={{ color: '#00ff80', fontWeight: 'bold' }}>micro1</span> — the AI hiring platform trusted by OpenAI and Anthropic.
             </p>
 
-            <div className="about-stats">
-              <div className="stat">
-                <h4>5+ Years</h4>
-                <p>Professional Experience</p>
-              </div>
-              <div className="stat">
-                <h4>100+ Projects</h4>
-                <p>Successfully Delivered</p>
-              </div>
-              <div className="stat">
-                <h4>Global</h4>
-                <p>Client Base</p>
-              </div>
-            </div>
           </motion.div>
 
           <motion.div
