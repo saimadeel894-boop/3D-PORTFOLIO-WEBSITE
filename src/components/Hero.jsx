@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState, useEffect, Suspense } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { OrbitControls, Sphere, MeshDistortMaterial, Box, Float, Environment, PerspectiveCamera, useScroll, Stars, Loader } from '@react-three/drei'
 import { motion } from 'framer-motion'
