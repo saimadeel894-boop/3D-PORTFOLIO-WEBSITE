@@ -1,6 +1,5 @@
 import React, { useState, Suspense, lazy } from 'react'
 import Navbar from './components/Navbar.jsx'
-const Globe3D = lazy(() => import('./components/Globe3D.jsx'))
 import Hero from './components/Hero.jsx'
 import StatsSection from './components/StatsSection.jsx'
 import About from './components/About.jsx'
@@ -80,7 +79,6 @@ function App() {
           <div className="loader-ring" />
         </div>
       }>
-        <Globe3D />
         <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
         <div className="animate-section">
           <Hero />
