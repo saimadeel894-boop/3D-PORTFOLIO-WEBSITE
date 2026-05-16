@@ -113,9 +113,26 @@ const Globe3D = () => {
     const particles = new THREE.Points(particleGeo, particleMat);
     globeGroup.add(particles);
 
+    let mouseX = 0;
+    let mouseY = 0;
+    let targetX = 0;
+    let targetY = 0;
+    
+    const handleMouseMove = (event) => {
+      mouseX = (event.clientX - window.innerWidth / 2) * 0.0005;
+      mouseY = (event.clientY - window.innerHeight / 2) * 0.0005;
+    };
+    document.addEventListener('mousemove', handleMouseMove);
+
     let rafId;
     const animate = () => {
       rafId = requestAnimationFrame(animate);
+      
+      targetX = mouseX * 2;
+      targetY = mouseY * 2;
+      
+      globeGroup.rotation.y += 0.05 * (targetX - globeGroup.rotation.y);
+      globeGroup.rotation.x += 0.05 * (targetY - globeGroup.rotation.x);
       
       // Slow rotation
       globe.rotation.y += 0.002;
@@ -140,6 +157,7 @@ const Globe3D = () => {
       cancelAnimationFrame(rafId);
       observer.disconnect();
       document.removeEventListener('visibilitychange', handleVisibilityChange);
+      document.removeEventListener('mousemove', handleMouseMove);
       renderer.dispose();
       geometry.dispose();
       material.dispose();
