@@ -53,22 +53,28 @@ const About = () => {
                 <div className="icon-circle">
                   <span className="icon" role="img" aria-label="lightning bolt">⚡</span>
                 </div>
-                <h4>Web Development</h4>
-                <p>React, Next.js, scalable systems</p>
+                <div className="strength-text">
+                  <h4>Web Development</h4>
+                  <p>React, Next.js, scalable systems</p>
+                </div>
               </div>
               <div className="strength-icon">
                 <div className="icon-circle">
                   <span className="icon" role="img" aria-label="mobile phone">📱</span>
                 </div>
-                <h4>Mobile Apps</h4>
-                <p>React Native · iOS &amp; Android · Expo</p>
+                <div className="strength-text">
+                  <h4>Mobile Apps</h4>
+                  <p>React Native · iOS &amp; Android · Expo</p>
+                </div>
               </div>
               <div className="strength-icon">
                 <div className="icon-circle">
                   <span className="icon" role="img" aria-label="robot">🤖</span>
                 </div>
-                <h4>AI Integration</h4>
-                <p>SaaS &amp; automation tools</p>
+                <div className="strength-text">
+                  <h4>AI Integration</h4>
+                  <p>SaaS &amp; automation tools</p>
+                </div>
               </div>
             </div>
           </motion.div>
