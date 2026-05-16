@@ -60,7 +60,7 @@ const ProjectsSection = () => {
       description: "Four deployed AI tools — AI Study Assistant, AI Content Humanizer, AI Image Caption Generator, and AI Flash Card Generator. All built with Next.js and OpenAI API. All live on Vercel.",
       techStack: ["Next.js", "OpenAI API", "GPT-4", "Vision API", "Firebase", "Tailwind CSS"],
       badge: "🤖 AI Powered",
-      liveDemo: "",
+      liveDemo: "https://ai-humanize-saas-tool.vercel.app/",
       github: ""
     },
     {

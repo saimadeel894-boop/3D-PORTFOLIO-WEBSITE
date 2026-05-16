@@ -18,24 +18,31 @@ function App() {
   const [showScrollTop, setShowScrollTop] = useState(false)
 
   React.useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 500)
-      
-      const sections = ['home', 'about', 'certification', 'skills', 'projects', 'contact']
-      const scrollPosition = window.scrollY + 200
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setShowScrollTop(window.scrollY > 500)
+          
+          const sections = ['home', 'about', 'certification', 'skills', 'projects', 'contact']
+          const scrollPosition = window.scrollY + 200
 
-      for (const section of sections) {
-        const element = document.getElementById(section)
-        if (element) {
-          const offsetTop = element.offsetTop
-          const offsetHeight = element.offsetHeight
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section)
+          for (const section of sections) {
+            const element = document.getElementById(section)
+            if (element) {
+              const offsetTop = element.offsetTop
+              const offsetHeight = element.offsetHeight
+              if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+                setActiveSection(section)
+              }
+            }
           }
-        }
+          ticking = false;
+        });
+        ticking = true;
       }
     }
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     
     const observer = new IntersectionObserver(
       (entries) => {
