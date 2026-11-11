@@ -17,7 +17,7 @@ const Navbar = ({ activeSection, setActiveSection }) => {
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
-    { id: 'certification', label: 'Badge' },
+    { id: 'certification', label: 'Honors' },
     { id: 'skills', label: 'Skills' },
     { id: 'projects', label: 'Projects' },
     { id: 'contact', label: 'Contact' }
@@ -42,10 +42,11 @@ const Navbar = ({ activeSection, setActiveSection }) => {
       <div className="nav-container">
         <motion.div 
           className="navbar-name"
-          whileHover={{ scale: 1.1 }}
+          onClick={() => scrollToSection('home')}
+          whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          SAIM ADEEL
+          MUHAMMAD SAIM ADEEL
         </motion.div>
 
         <div className={`nav-menu ${menuOpen ? 'active' : ''}`}>

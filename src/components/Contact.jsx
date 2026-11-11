@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { FaEnvelope, FaGithub, FaLinkedin, FaInstagram, FaWhatsapp } from 'react-icons/fa'
+import { FaEnvelope, FaGithub, FaLinkedin, FaWhatsapp, FaMapMarkerAlt, FaPhoneAlt, FaPaperPlane } from 'react-icons/fa'
 import './Contact.css'
 
 const Contact = () => {
-
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    roleOrCompany: '',
     message: ''
   })
   const [isSent, setIsSent] = useState(false)
@@ -21,10 +21,14 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Handle form submission
+    // Open user's default email client pre-filled or trigger notification
+    const subject = encodeURIComponent(`Engineering Inquiries from ${formData.name || 'Collaborator'} (${formData.roleOrCompany || 'Tech Team'})`)
+    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nCompany/Role: ${formData.roleOrCompany}\n\nMessage:\n${formData.message}`)
+    window.open(`mailto:saimadeel894@gmail.com?subject=${subject}&body=${body}`, '_blank')
+    
     setIsSent(true)
-    setTimeout(() => setIsSent(false), 3000)
-    setFormData({ name: '', email: '', message: '' })
+    setTimeout(() => setIsSent(false), 4000)
+    setFormData({ name: '', email: '', roleOrCompany: '', message: '' })
   }
 
   return (
@@ -32,13 +36,17 @@ const Contact = () => {
       <div className="container">
         <motion.h2
           className="section-heading"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          Let's Build Something That Matters
+          Let's Build Resilient Systems Together
         </motion.h2>
+
+        <p className="contact-lead-subtitle">
+          Open for high-impact Senior Full-Stack Engineering, AI Benchmark/Evaluation roles, and technical advisory ($60–$120/hr tier).
+        </p>
 
         <div className="contact-content">
           <motion.div
@@ -53,7 +61,7 @@ const Contact = () => {
                 <input
                   type="text"
                   name="name"
-                  placeholder="Your Name"
+                  placeholder="Your Name / Team"
                   value={formData.name}
                   onChange={handleChange}
                   required
@@ -63,16 +71,25 @@ const Contact = () => {
                 <input
                   type="email"
                   name="email"
-                  placeholder="Your Email"
+                  placeholder="Your Work Email"
                   value={formData.email}
                   onChange={handleChange}
                   required
                 />
               </div>
               <div className="form-group">
+                <input
+                  type="text"
+                  name="roleOrCompany"
+                  placeholder="Company / AI Lab / Project Name"
+                  value={formData.roleOrCompany}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="form-group">
                 <textarea
                   name="message"
-                  placeholder="Your Message"
+                  placeholder="Project scope, AI evaluation harness requirements, or architectural challenge..."
                   value={formData.message}
                   onChange={handleChange}
                   rows="5"
@@ -82,12 +99,17 @@ const Contact = () => {
               <motion.button
                 type="submit"
                 className={`btn-primary ${isSent ? 'success' : ''}`}
-                whileHover={!isSent ? { scale: 1.05 } : {}}
-                whileTap={!isSent ? { scale: 0.95 } : {}}
+                whileHover={!isSent ? { scale: 1.03 } : {}}
+                whileTap={!isSent ? { scale: 0.97 } : {}}
                 disabled={isSent}
-                style={isSent ? { background: '#00ff80', color: '#000', borderColor: '#00ff80' } : { padding: '16px 32px', width: '100%' }}
+                style={isSent ? { background: '#10b981', color: '#000', borderColor: '#10b981' } : { padding: '16px 32px', width: '100%' }}
               >
-                {isSent ? 'Message Sent! ✓' : 'Send Message'}
+                {isSent ? 'Dispatching Inquiries... ✓' : (
+                  <>
+                    <FaPaperPlane style={{ marginRight: '8px' }} />
+                    <span>Send Engineering Inquiry</span>
+                  </>
+                )}
               </motion.button>
             </form>
           </motion.div>
@@ -99,10 +121,37 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
+            <div className="contact-details-box">
+              <div className="contact-detail-row">
+                <div className="detail-icon"><FaMapMarkerAlt /></div>
+                <div>
+                  <div className="detail-title">Location</div>
+                  <div className="detail-val">Lahore, Pakistan (Global Remote)</div>
+                </div>
+              </div>
+
+              <div className="contact-detail-row">
+                <div className="detail-icon"><FaPhoneAlt /></div>
+                <div>
+                  <div className="detail-title">Phone &amp; WhatsApp</div>
+                  <div className="detail-val">+92 309 0240140</div>
+                </div>
+              </div>
+
+              <div className="contact-detail-row">
+                <div className="detail-icon"><FaEnvelope /></div>
+                <div>
+                  <div className="detail-title">Direct Email</div>
+                  <div className="detail-val">saimadeel894@gmail.com</div>
+                </div>
+              </div>
+            </div>
+
             <div className="contact-icons">
               <motion.a
                 href="mailto:saimadeel894@gmail.com"
                 className="contact-icon"
+                title="Send Email"
                 whileHover={{ scale: 1.1, color: '#00ffff' }}
                 whileTap={{ scale: 0.9 }}
               >
@@ -110,10 +159,23 @@ const Contact = () => {
                 <span>Email</span>
               </motion.a>
               <motion.a
-                href="https://www.linkedin.com/in/saim-adeel-890a67376"
+                href="https://wa.me/923090240140"
+                className="contact-icon whatsapp-bounce"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="WhatsApp Direct"
+                whileHover={{ scale: 1.1, color: '#25D366' }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <FaWhatsapp />
+                <span>WhatsApp</span>
+              </motion.a>
+              <motion.a
+                href="https://linkedin.com/in/saim-adeel-890a67376"
                 className="contact-icon"
                 target="_blank"
                 rel="noopener noreferrer"
+                title="LinkedIn Profile"
                 whileHover={{ scale: 1.1, color: '#0077b5' }}
                 whileTap={{ scale: 0.9 }}
               >
@@ -125,38 +187,19 @@ const Contact = () => {
                 className="contact-icon"
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.1, color: '#ff00ff' }}
+                title="GitHub Repositories"
+                whileHover={{ scale: 1.1, color: '#00e5ff' }}
                 whileTap={{ scale: 0.9 }}
               >
                 <FaGithub />
                 <span>GitHub</span>
               </motion.a>
-              <motion.a
-                href="https://www.instagram.com/deepwebvisions?igsh=eXA3Nnh1NHM1ODJp"
-                className="contact-icon"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.1, color: '#E1306C' }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <FaInstagram />
-                <span>Instagram</span>
-              </motion.a>
-              <motion.a
-                href="https://wa.me/923091050789"
-                className="contact-icon whatsapp-bounce"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.1, color: '#25D366' }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <FaWhatsapp />
-                <span>WhatsApp</span>
-              </motion.a>
             </div>
 
             <div className="contact-message">
-              <p>Ready to bring your vision to life? Let's discuss your next <strong>Web or Mobile App</strong> project and create something extraordinary together.</p>
+              <p>
+                Whether you need <strong>SWE-bench task harnesses</strong>, frontier model evaluation pipelines, 60 FPS WebGL applications, or resilient full-stack architecture, feel free to reach out. I respond within 24 hours.
+              </p>
             </div>
           </motion.div>
         </div>

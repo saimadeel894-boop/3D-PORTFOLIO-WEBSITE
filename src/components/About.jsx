@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { FaAward, FaRobot, FaServer, FaShieldAlt, FaMapMarkerAlt } from 'react-icons/fa'
 import './About.css'
 
 const About = () => {
@@ -12,7 +13,7 @@ const About = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          About Me
+          Engineering Profile
         </motion.h2>
 
         <div className="about-content">
@@ -23,17 +24,35 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h3>Senior Web & App Developer</h3>
-            <p>
-              I'm a senior developer with 5+ years and 100+ projects shipped for international clients across Germany, UAE, USA, and the UK. I build both web applications and cross-platform mobile apps — specializing in React Native with Expo for iOS and Android.
+            <div className="about-location-pill">
+              <FaMapMarkerAlt /> <span>Lahore, Pakistan · Available for Global Remote (US/EU Timezones)</span>
+            </div>
+
+            <h3>Senior Full-Stack &amp; Systems Engineer</h3>
+            <p className="about-lead">
+              Specialized in <strong>AI Model Evaluation</strong>, <strong>SWE-bench Task Creation</strong>, and high-performance full-stack architectures.
             </p>
+            
             <p>
-              I specialize in high-performance <strong>Web &amp; Mobile App</strong> systems — from React and Next.js on the web to React Native on mobile, and AI-powered SaaS platforms.
-            </p>
-            <p>
-              Certified Senior Developer by <span style={{ color: '#00ff80', fontWeight: 'bold' }}>micro1</span> — the AI hiring platform trusted by OpenAI and Anthropic.
+              With over <strong>5+ years of production engineering</strong> experience, I bridge the gap between complex systems architecture and frontier AI evaluation. I construct deterministic Docker execution sandboxes, comprehensive automated test suites (pytest/unittest), and ground-truth benchmark harnesses that rigorously stress-test state-of-the-art coding models.
             </p>
 
+            <p>
+              My standard for engineering rigor is backed by having conducted <strong>600+ production Pull Request code reviews</strong>, enforcing zero-regression principles, clean architectural boundaries, and low-latency performance.
+            </p>
+
+            <div className="honors-callout-card">
+              <div className="honors-callout-badge">
+                <FaAward className="gold-icon" />
+                <span>Premier Achievement</span>
+              </div>
+              <h4>🏆 1st Place Gold Medalist</h4>
+              <p>International Computer Science Olympiad (2026) — Proven mastery in competitive algorithms, computational complexity, and systems reasoning under extreme time pressure.</p>
+            </div>
+
+            <p className="cert-note">
+              Certified Senior Full-Stack Developer by <strong style={{ color: '#00ff80' }}>micro1</strong> — vetted through AI-proctored technical evaluations trusted by the OpenAI and Anthropic hiring ecosystems.
+            </p>
           </motion.div>
 
           <motion.div
@@ -44,36 +63,48 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <div className="profile-image-container">
-              <img src="/profile.jpg" alt="Saim Adeel - Senior Web & App Developer" className="profile-image" />
+              <img src="/profile.jpg" alt="Muhammad Saim Adeel - Senior Full-Stack & Systems Engineer" className="profile-image" />
               <div className="profile-glow"></div>
             </div>
 
             <div className="glass-panel">
               <div className="strength-icon">
-                <div className="icon-circle">
-                  <span className="icon" role="img" aria-label="lightning bolt">⚡</span>
+                <div className="icon-circle icon-gold">
+                  <FaAward />
                 </div>
                 <div className="strength-text">
-                  <h4>Web Development</h4>
-                  <p>React, Next.js, scalable systems</p>
+                  <h4>ICSO Gold Medalist</h4>
+                  <p>1st Place worldwide · Algorithms &amp; Complexity</p>
                 </div>
               </div>
+
               <div className="strength-icon">
-                <div className="icon-circle">
-                  <span className="icon" role="img" aria-label="mobile phone">📱</span>
+                <div className="icon-circle icon-ai">
+                  <FaRobot />
                 </div>
                 <div className="strength-text">
-                  <h4>Mobile Apps</h4>
-                  <p>React Native · iOS &amp; Android · Expo</p>
+                  <h4>AI &amp; SWE-bench Evaluation</h4>
+                  <p>Docker sandboxes, ground truth vetting, pytest</p>
                 </div>
               </div>
+
               <div className="strength-icon">
-                <div className="icon-circle">
-                  <span className="icon" role="img" aria-label="robot">🤖</span>
+                <div className="icon-circle icon-sys">
+                  <FaServer />
                 </div>
                 <div className="strength-text">
-                  <h4>AI Integration</h4>
-                  <p>SaaS &amp; automation tools</p>
+                  <h4>Production Full-Stack &amp; 3D</h4>
+                  <p>React, Next.js, Three.js, FastAPI, Node, Go</p>
+                </div>
+              </div>
+
+              <div className="strength-icon">
+                <div className="icon-circle icon-review">
+                  <FaShieldAlt />
+                </div>
+                <div className="strength-text">
+                  <h4>Code Quality &amp; PR Auditing</h4>
+                  <p>600+ production reviews · Resilient systems</p>
                 </div>
               </div>
             </div>
