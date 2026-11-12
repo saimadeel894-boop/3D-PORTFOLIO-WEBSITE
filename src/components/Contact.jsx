@@ -45,7 +45,7 @@ const Contact = () => {
         </motion.h2>
 
         <p className="contact-lead-subtitle">
-          Open for high-impact Senior Full-Stack Engineering, AI Benchmark/Evaluation roles, and technical advisory ($60–$120/hr tier).
+          Open for high-impact Web &amp; Mobile development, Full-Stack engineering, and AI Model Evaluation roles. Available for Full-Time, Contract &amp; Project-Based Work.
         </p>
 
         <div className="contact-content">
@@ -126,7 +126,7 @@ const Contact = () => {
                 <div className="detail-icon"><FaMapMarkerAlt /></div>
                 <div>
                   <div className="detail-title">Location</div>
-                  <div className="detail-val">Lahore, Pakistan (Global Remote)</div>
+                  <div className="detail-val">Global Remote (US/EU/Global Timezones)</div>
                 </div>
               </div>
 
@@ -198,7 +198,7 @@ const Contact = () => {
 
             <div className="contact-message">
               <p>
-                Whether you need <strong>SWE-bench task harnesses</strong>, frontier model evaluation pipelines, 60 FPS WebGL applications, or resilient full-stack architecture, feel free to reach out. I respond within 24 hours.
+                Whether you need production <strong>Web &amp; Mobile applications</strong> (Next.js, React, React Native), high-throughput backend APIs, or frontier <strong>AI model evaluation suites</strong>, feel free to reach out. I respond within 24 hours.
               </p>
             </div>
           </motion.div>

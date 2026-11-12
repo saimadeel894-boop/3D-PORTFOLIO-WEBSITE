@@ -6,23 +6,23 @@ const StatsSection = () => {
   const stats = [
     { 
       number: "5+ Yrs",   
-      label: "Production Systems", 
-      detail: "Full-Stack Architecture & 60 FPS WebGL Systems" 
+      label: "Full-Stack & Mobile", 
+      detail: "Production Web, Mobile & SaaS Architectures" 
     },
     { 
-      number: "600+", 
-      label: "Code Reviews", 
-      detail: "Production Pull Request Code Reviews Conducted" 
+      number: "50+", 
+      label: "Shipped Projects", 
+      detail: "Full-Stack Web, Cross-Platform Apps & APIs" 
     },
     { 
       number: "1st 🏆",  
-      label: "Olympiad Gold", 
-      detail: "Intl Computer Science Olympiad (2026)" 
+      label: "Olympiad Winner", 
+      detail: "ICSO 1st Place Winner (2026)" 
     },
     { 
-      number: "SWE-bench",    
-      label: "AI Evaluation", 
-      detail: "Deterministic Sandboxes & Model Vetting" 
+      number: "600+",    
+      label: "PR Code Reviews", 
+      detail: "AI Model Vetting & Deterministic Sandboxes" 
     },
   ];
 

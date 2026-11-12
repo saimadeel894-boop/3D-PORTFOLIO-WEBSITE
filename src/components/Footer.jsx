@@ -6,10 +6,10 @@ const Footer = () => {
   return (
     <footer>
       <div className="footer-logo">MUHAMMAD SAIM ADEEL<span>.</span></div>
-      <p className="footer-tagline">Senior Full-Stack &amp; Systems Engineer | AI Model Evaluation &amp; SWE Benchmark Specialist</p>
+      <p className="footer-tagline">Full-Stack Software Engineer (Next.js, React, React Native, Node.js, Python) | Web, Mobile &amp; AI Specialist</p>
       
       <div className="footer-honor-pill">
-        <FaAward /> 1st Place Gold Medalist — International Computer Science Olympiad (2026)
+        <FaAward /> 1st Place Winner — International Computer Science Olympiad (2026)
       </div>
 
       <div className="footer-links">
@@ -27,7 +27,7 @@ const Footer = () => {
         </a>
       </div>
 
-      <p className="footer-copy">© 2026 Muhammad Saim Adeel. Lahore, Pakistan · High-Impact Systems Architecture.</p>
+      <p className="footer-copy">© 2026 Muhammad Saim Adeel. Global Remote · High-Impact Systems Architecture.</p>
     </footer>
   )
 }

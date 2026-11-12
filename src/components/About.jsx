@@ -25,20 +25,20 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="about-location-pill">
-              <FaMapMarkerAlt /> <span>Lahore, Pakistan · Available for Global Remote (US/EU Timezones)</span>
+              <FaMapMarkerAlt /> <span>Global Remote · Available Worldwide (US/EU/Global Timezones)</span>
             </div>
 
-            <h3>Senior Full-Stack &amp; Systems Engineer</h3>
+            <h3>Full-Stack &amp; Systems Software Engineer</h3>
             <p className="about-lead">
-              Specialized in <strong>AI Model Evaluation</strong>, <strong>SWE-bench Task Creation</strong>, and high-performance full-stack architectures.
+              Specialized in scalable <strong>Web &amp; Mobile App Development</strong> and frontier <strong>AI Training / Model Evaluation</strong>.
             </p>
             
             <p>
-              With over <strong>5+ years of production engineering</strong> experience, I bridge the gap between complex systems architecture and frontier AI evaluation. I construct deterministic Docker execution sandboxes, comprehensive automated test suites (pytest/unittest), and ground-truth benchmark harnesses that rigorously stress-test state-of-the-art coding models.
+              With over <strong>5+ years of production engineering experience</strong>, I specialize in building end-to-end production websites, enterprise SaaS platforms, and cross-platform mobile applications using <strong>Next.js, React, React Native, TypeScript, Node.js, Python, and PostgreSQL</strong>. From 60 FPS WebGL interfaces to high-concurrency microservices, I architect resilient, conversion-focused software built for scale.
             </p>
 
             <p>
-              My standard for engineering rigor is backed by having conducted <strong>600+ production Pull Request code reviews</strong>, enforcing zero-regression principles, clean architectural boundaries, and low-latency performance.
+              Complementing full-stack development, I specialize in <strong>AI Training &amp; Model Evaluation</strong>—including Reinforcement Learning from Human Feedback (RLHF), Supervised Fine-Tuning (SFT), automated PyTest/Jest test suites, and deterministic Docker execution sandboxes for benchmark suites like SWE-bench. My engineering rigor is proven through having conducted <strong>600+ production Pull Request code reviews</strong>, ensuring clean architectural boundaries, low latency, and uncompromising code quality.
             </p>
 
             <div className="honors-callout-card">
@@ -46,8 +46,8 @@ const About = () => {
                 <FaAward className="gold-icon" />
                 <span>Premier Achievement</span>
               </div>
-              <h4>🏆 1st Place Gold Medalist</h4>
-              <p>International Computer Science Olympiad (2026) — Proven mastery in competitive algorithms, computational complexity, and systems reasoning under extreme time pressure.</p>
+              <h4>🏆 1st Place Winner</h4>
+              <p>International Computer Science Olympiad (2026) — Proven mastery in competitive algorithms, computational complexity, and distributed systems reasoning under rigorous international evaluation.</p>
             </div>
 
             <p className="cert-note">
@@ -63,7 +63,7 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <div className="profile-image-container">
-              <img src="/profile.jpg" alt="Muhammad Saim Adeel - Senior Full-Stack & Systems Engineer" className="profile-image" />
+              <img src="/profile.jpg" alt="Muhammad Saim Adeel - Full-Stack Software Engineer" className="profile-image" />
               <div className="profile-glow"></div>
             </div>
 
@@ -73,18 +73,8 @@ const About = () => {
                   <FaAward />
                 </div>
                 <div className="strength-text">
-                  <h4>ICSO Gold Medalist</h4>
+                  <h4>ICSO 1st Place Winner</h4>
                   <p>1st Place worldwide · Algorithms &amp; Complexity</p>
-                </div>
-              </div>
-
-              <div className="strength-icon">
-                <div className="icon-circle icon-ai">
-                  <FaRobot />
-                </div>
-                <div className="strength-text">
-                  <h4>AI &amp; SWE-bench Evaluation</h4>
-                  <p>Docker sandboxes, ground truth vetting, pytest</p>
                 </div>
               </div>
 
@@ -93,8 +83,18 @@ const About = () => {
                   <FaServer />
                 </div>
                 <div className="strength-text">
-                  <h4>Production Full-Stack &amp; 3D</h4>
-                  <p>React, Next.js, Three.js, FastAPI, Node, Go</p>
+                  <h4>Web &amp; Mobile Development</h4>
+                  <p>Next.js, React, React Native, Node, Python, PostgreSQL</p>
+                </div>
+              </div>
+
+              <div className="strength-icon">
+                <div className="icon-circle icon-ai">
+                  <FaRobot />
+                </div>
+                <div className="strength-text">
+                  <h4>AI Training &amp; Model Evaluation</h4>
+                  <p>RLHF, SFT, SWE-bench sandboxes, automated test suites</p>
                 </div>
               </div>
 

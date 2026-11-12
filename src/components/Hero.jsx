@@ -7,7 +7,7 @@ import './Hero.css'
 const HeroSubtitle = () => {
   return (
     <div className="hero-subtitle">
-      Senior Full-Stack & Systems Engineer | AI Model Evaluation & SWE Benchmark Specialist
+      Full-Stack Software Engineer (Next.js, React, Node.js, Python) | Web, Mobile &amp; AI Evaluation Specialist
     </div>
   );
 };
@@ -44,7 +44,7 @@ const Hero = () => {
               transition={{ delay: 0.25 }}
             >
               <span className="gold-medal-icon">🏆</span>
-              <span className="gold-text">1st Place Gold Medalist — International Computer Science Olympiad (2026)</span>
+              <span className="gold-text">1st Place Winner — International Computer Science Olympiad (2026)</span>
             </motion.div>
 
             <motion.div
@@ -54,7 +54,7 @@ const Hero = () => {
               transition={{ delay: 0.35 }}
             >
               <span className="availability-dot"></span>
-              <span>Available for Elite AI Labs &amp; High-Impact Roles</span>
+              <span>Available for Global Remote Software Engineering &amp; AI Roles</span>
             </motion.div>
           </div>
 
@@ -64,7 +64,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            Hey, I'm <span className="name-highlight">Muhammad Saim Adeel</span>. I architect resilient systems &amp; <span className="action-highlight">evaluate frontier AI models.</span>
+            Hey, I'm <span className="name-highlight">Muhammad Saim Adeel</span>. I build scalable Web &amp; Mobile Apps, Full-Stack Systems &amp; <span className="action-highlight">train AI models.</span>
           </motion.h1>
 
           <HeroSubtitle />
@@ -77,17 +77,17 @@ const Hero = () => {
           >
             <div className="hero-metric-item">
               <span className="metric-val">5+ Years</span>
-              <span className="metric-lbl">Production Systems Architecture</span>
+              <span className="metric-lbl">Full-Stack Web &amp; App Development</span>
             </div>
             <div className="metric-separator" />
             <div className="hero-metric-item">
-              <span className="metric-val">600+</span>
-              <span className="metric-lbl">Production PR Code Reviews</span>
+              <span className="metric-val">50+ Apps</span>
+              <span className="metric-lbl">Production Web, Mobile &amp; APIs</span>
             </div>
             <div className="metric-separator" />
             <div className="hero-metric-item">
-              <span className="metric-val">SWE-bench</span>
-              <span className="metric-lbl">Deterministic Sandboxing &amp; Vetting</span>
+              <span className="metric-val">AI &amp; Olympiad</span>
+              <span className="metric-lbl">ICSO 1st Place Winner &amp; Model Evaluation</span>
             </div>
           </motion.div>
 

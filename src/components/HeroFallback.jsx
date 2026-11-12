@@ -46,7 +46,7 @@ const HeroFallback = () => {
           >
             Transforming complex problems into elegant, scalable solutions.
             <br />
-            Based in Lahore, building for the world.
+            Global Remote · Building for the world.
           </motion.p>
 
           <motion.div

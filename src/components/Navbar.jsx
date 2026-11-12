@@ -69,7 +69,7 @@ const Navbar = ({ activeSection, setActiveSection }) => {
           ))}
           <motion.a
             href="/Saim_Adeel_CV.pdf"
-            download="Saim_Adeel_CV.pdf"
+            download="Muhammad_Saim_Adeel_CV.pdf"
             target="_blank"
             className="nav-cv-btn"
             whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(0, 255, 255, 0.5)" }}
